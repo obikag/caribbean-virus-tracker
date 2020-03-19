@@ -1,34 +1,31 @@
-import React, { Component } from 'react';
+import React, { Fragment} from 'react';
 
-class Footer extends Component {
-   render() {
+const Footer = () => {
       return (
-         <footer class="bg-dark text-white">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-6">
-                     <h5 class="text-center">Disclaimer</h5>
-                     <p>This list is created by public contributions,
-                        and managed voluntarily by [Name]</p>
-                     <p>While listing additions are verified,
-                        we do recommend calling to confirm details using
-                        the contact information provided, as we cannot be responsible for how quickly
-                     notice on the CLOSING of locations or services is distributed or moderated.</p>
+         <Fragment>
+            <footer class="bg-dark text-white">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h4 class="text-center">Disclaimer</h4>
+                        <p class="text-center">This list is managed voluntarily by Obika Gellineau</p>
+                        <p>While listing additions are sourced through the <a class="text-white" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">
+                           <em>WHO Situation reports on CORVID-19</em></a> provided by the World Health Organization (WHO), the site's author cannot be responsible 
+                           for any inaccuracies reported by WHO.</p>
+                     </div>
                   </div>
-                  <div class="col-md-6">
-                     <h5 class="text-center">Contact infomation</h5>
-                     <p>[Contact]</p>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-12">
-                     <p class="text-center">Built by Obika Gellineau | Copyright {new Date().getFullYear()} All Rights Reserved.</p>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p class="text-center">Built by Obika Gellineau | Copyright {new Date().getFullYear()} All Rights Reserved.</p>
+                     </div>
                   </div>
                </div>
-            </div>
-         </footer>
+            </footer>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+         </Fragment>
       );
-   }
 }
 
 export default Footer;

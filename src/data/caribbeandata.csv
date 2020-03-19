@@ -1,0 +1,117 @@
+date,location,new_cases,new_deaths,total_cases,total_deaths,source_name,source_url
+14/03/2020,Antigua and Barbuda,1,0,1,0,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,Antigua and Barbuda,0,0,1,0,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,Antigua and Barbuda,0,0,1,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Antigua and Barbuda,0,0,1,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+17/03/2020,Bahamas,1,0,1,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+02/03/2020,Dominican Republic,1,0,1,0,WHO Situation Report #42,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200302-sitrep-42-covid-19.pdf
+03/03/2020,Dominican Republic,0,0,1,0,WHO Situation Report #43,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200303-sitrep-43-covid-19.pdf
+04/03/2020,Dominican Republic,0,0,1,0,WHO Situation Report #44,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200304-sitrep-44-covid-19.pdf
+05/03/2020,Dominican Republic,0,0,1,0,WHO Situation Report #45,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200305-sitrep-45-covid-19.pdf
+06/03/2020,Dominican Republic,0,0,1,0,WHO Situation Report #46,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200306-sitrep-46-covid-19.pdf
+07/03/2020,Dominican Republic,0,0,1,0,WHO Situation Report #47,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200307-sitrep-47-covid-19.pdf
+08/03/2020,Dominican Republic,0,0,1,0,WHO Situation Report #48,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200308-sitrep-48-covid-19.pdf
+09/03/2020,Dominican Republic,0,0,1,0,WHO Situation Report #49,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200309-sitrep-49-covid-19.pdf
+10/03/2020,Dominican Republic,4,0,5,0,WHO Situation Report #50,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200310-sitrep-50-covid-19.pdf
+11/03/2020,Dominican Republic,0,0,5,0,WHO Situation Report #51,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200311-sitrep-51-covid-19.pdf
+12/03/2020,Dominican Republic,0,0,5,0,WHO Situation Report #52,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200312-sitrep-52-covid-19.pdf
+13/03/2020,Dominican Republic,0,0,5,0,WHO Situation Report #53,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200313-sitrep-53-covid-19.pdf
+14/03/2020,Dominican Republic,0,0,5,0,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,Dominican Republic,0,0,5,0,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,Dominican Republic,0,0,5,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Dominican Republic,16,1,21,1,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+13/03/2020,Guyana,1,1,1,1,WHO Situation Report #53,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200313-sitrep-53-covid-19.pdf
+14/03/2020,Guyana,0,0,1,1,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,Guyana,0,0,1,1,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,Guyana,3,0,4,1,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Guyana,0,0,4,1,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+11/03/2020,Jamaica,1,0,1,0,WHO Situation Report #51,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200311-sitrep-51-covid-19.pdf
+12/03/2020,Jamaica,0,0,1,0,WHO Situation Report #52,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200312-sitrep-52-covid-19.pdf
+13/03/2020,Jamaica,0,0,1,0,WHO Situation Report #53,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200313-sitrep-53-covid-19.pdf
+14/03/2020,Jamaica,6,0,7,0,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,Jamaica,1,0,8,0,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,Jamaica,2,0,10,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Jamaica,0,0,10,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+16/03/2020,Saint Lucia,1,0,1,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Saint Lucia,1,0,2,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+05/03/2020,Saint Martin (French part),2,0,2,0,WHO Situation Report #45,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200305-sitrep-45-covid-19.pdf
+06/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #46,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200306-sitrep-46-covid-19.pdf
+07/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #47,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200307-sitrep-47-covid-19.pdf
+08/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #48,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200308-sitrep-48-covid-19.pdf
+09/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #49,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200309-sitrep-49-covid-19.pdf
+10/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #50,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200310-sitrep-50-covid-19.pdf
+11/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #51,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200311-sitrep-51-covid-19.pdf
+12/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #52,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200312-sitrep-52-covid-19.pdf
+13/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #53,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200313-sitrep-53-covid-19.pdf
+14/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Saint Martin (French part),0,0,2,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+13/03/2020,Saint Vincent and the Grenadines,1,0,1,0,WHO Situation Report #53,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200313-sitrep-53-covid-19.pdf
+14/03/2020,Saint Vincent and the Grenadines,0,0,1,0,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,Saint Vincent and the Grenadines,0,0,1,0,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,Saint Vincent and the Grenadines,0,0,1,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Saint Vincent and the Grenadines,0,0,1,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+16/03/2020,Suriname,1,0,1,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Suriname,0,0,1,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+14/03/2020,Trinidad and Tobago,1,0,1,0,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,Trinidad and Tobago,0,0,1,0,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,Trinidad and Tobago,1,0,2,0,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,Trinidad and Tobago,3,0,5,0,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf
+21/01/2020,World,0,0,282,6,WHO Situation Report #1,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200121-sitrep-1-2019-ncov.pdf
+22/01/2020,World,32,0,314,6,WHO Situation Report #2,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200122-sitrep-2-2019-ncov.pdf
+23/01/2020,World,266,11,581,17,WHO Situation Report #3,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200123-sitrep-3-2019-ncov.pdf
+24/01/2020,World,262,8,846,25,WHO Situation Report #4,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200124-sitrep-4-2019-ncov.pdf
+25/01/2020,World,467,16,1320,41,WHO Situation Report #5,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200125-sitrep-5-2019-ncov.pdf
+26/01/2020,World,691,15,2014,56,WHO Situation Report #6,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200126-sitrep-6-2019--ncov.pdf
+27/01/2020,World,783,24,2798,80,WHO Situation Report #7,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200127-sitrep-7-2019--ncov.pdf
+28/01/2020,World,1792,26,4593,106,WHO Situation Report #8,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200128-sitrep-8-ncov-cleared.pdf
+29/01/2020,World,1468,26,6065,132,WHO Situation Report #9,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200129-sitrep-9-ncov-v2.pdf
+30/01/2020,World,1750,38,7818,170,WHO Situation Report #10,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200130-sitrep-10-ncov.pdf
+31/01/2020,World,2006,43,9826,213,WHO Situation Report #11,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200131-sitrep-11-ncov.pdf
+01/02/2020,World,2121,46,11953,259,WHO Situation Report #12,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200201-sitrep-12-ncov.pdf
+02/02/2020,World,2604,45,14557,305,WHO Situation Report #13,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200202-sitrep-13-ncov-v3.pdf
+03/02/2020,World,2834,57,17391,362,WHO Situation Report #14,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200203-sitrep-14-ncov.pdf
+04/02/2020,World,3239,64,20630,426,WHO Situation Report #15,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200204-sitrep-15-ncov.pdf
+05/02/2020,World,3913,66,24544,492,WHO Situation Report #16,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200205-sitrep-16-ncov.pdf
+06/02/2020,World,3712,73,28276,565,WHO Situation Report #17,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200206-sitrep-17-ncov.pdf
+07/02/2020,World,3205,73,31481,638,WHO Situation Report #18,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200207-sitrep-18-ncov.pdf
+08/02/2020,World,3405,86,34886,724,WHO Situation Report #19,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200208-sitrep-19-ncov.pdf
+09/02/2020,World,2672,89,37558,813,WHO Situation Report #20,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200209-sitrep-20-ncov.pdf
+10/02/2020,World,2996,97,40554,910,WHO Situation Report #21,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200210-sitrep-21-ncov.pdf
+11/02/2020,World,2549,108,43103,1018,WHO Situation Report #22,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200211-sitrep-22-ncov.pdf
+12/02/2020,World,2068,97,45171,1115,WHO Situation Report #23,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200212-sitrep-23-ncov.pdf
+13/02/2020,World,1826,254,46997,1369,WHO Situation Report #24,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200213-sitrep-24-covid-19.pdf
+14/02/2020,World,2056,13,49053,1383,WHO Situation Report #25,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200214-sitrep-25-covid-19.pdf
+15/02/2020,World,1526,143,50580,1526,WHO Situation Report #26,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200215-sitrep-26-covid-19.pdf
+16/02/2020,World,1277,142,51857,1669,WHO Situation Report #27,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200216-sitrep-27-covid-19.pdf
+17/02/2020,World,19572,106,71429,1775,WHO Situation Report #28,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200217-sitrep-28-covid-19.pdf
+18/02/2020,World,1903,98,73332,1873,WHO Situation Report #29,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200218-sitrep-29-covid-19.pdf
+19/02/2020,World,1872,136,75204,2009,WHO Situation Report #30,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200219-sitrep-30-covid-19.pdf
+20/02/2020,World,542,115,75748,2129,WHO Situation Report #31,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200220-sitrep-31-covid-19.pdf
+21/02/2020,World,1021,118,76769,2247,WHO Situation Report #32,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200221-sitrep-32-covid-19.pdf
+22/02/2020,World,1023,112,77794,2359,WHO Situation Report #33,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200222-sitrep-33-covid-19.pdf
+23/02/2020,World,1017,102,78811,2463,WHO Situation Report #34,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200223-sitrep-34-covid-19.pdf
+24/02/2020,World,517,155,79331,2618,WHO Situation Report #35,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200224-sitrep-35-covid-19.pdf
+25/02/2020,World,896,82,80239,2700,WHO Situation Report #36,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200225-sitrep-36-covid-19.pdf
+26/02/2020,World,864,62,81109,2762,WHO Situation Report #37,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200226-sitrep-37-covid-19.pdf
+27/02/2020,World,1175,42,82294,2804,WHO Situation Report #38,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200227-sitrep-38-covid-19.pdf
+28/02/2020,World,1353,54,83652,2858,WHO Situation Report #39,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200228-sitrep-39-covid-19.pdf
+29/02/2020,World,1748,66,85403,2924,WHO Situation Report #40,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200229-sitrep-40-covid-19.pdf
+01/03/2020,World,1727,53,87137,2977,WHO Situation Report #41,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200301-sitrep-41-covid-19.pdf
+02/03/2020,World,1801,64,88948,3043,WHO Situation Report #42,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200302-sitrep-42-covid-19.pdf
+03/03/2020,World,1912,67,90869,3112,WHO Situation Report #43,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200303-sitrep-43-covid-19.pdf
+04/03/2020,World,2217,86,93090,3198,WHO Situation Report #44,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200304-sitrep-44-covid-19.pdf
+05/03/2020,World,2220,79,95324,3280,WHO Situation Report #45,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200305-sitrep-45-covid-19.pdf
+06/03/2020,World,2864,99,98192,3380,WHO Situation Report #46,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200306-sitrep-46-covid-19.pdf
+07/03/2020,World,3730,104,101927,3486,WHO Situation Report #47,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200307-sitrep-47-covid-19.pdf
+08/03/2020,World,3644,96,105592,3584,WHO Situation Report #48,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200308-sitrep-48-covid-19.pdf
+09/03/2020,World,3979,224,109577,3809,WHO Situation Report #49,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200309-sitrep-49-covid-19.pdf
+10/03/2020,World,4119,201,113702,4012,WHO Situation Report #50,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200310-sitrep-50-covid-19.pdf
+11/03/2020,World,4611,275,118319,4292,WHO Situation Report #51,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200311-sitrep-51-covid-19.pdf
+12/03/2020,World,6936,317,125260,4613,WHO Situation Report #52,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200312-sitrep-52-covid-19.pdf
+13/03/2020,World,7488,338,132758,4956,WHO Situation Report #53,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200313-sitrep-53-covid-19.pdf
+14/03/2020,World,9761,433,142534,5392,WHO Situation Report #54,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200314-sitrep-54-covid-19.pdf
+15/03/2020,World,10967,343,153517,5735,WHO Situation Report #55,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200315-sitrep-55-covid-19.pdf
+16/03/2020,World,13971,855,167506,6606,WHO Situation Report #56,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200316-sitrep-56-covid-19.pdf
+17/03/2020,World,11594,819,179112,7426,WHO Situation Report #57,https://www.who.int/docs/default-source/coronaviruse/situation-reports/20200317-sitrep-57-covid-19.pdf

@@ -1,31 +1,77 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Header, Footer } from './Layouts';
-import { Helmet } from 'react-helmet';
+import { graphql } from 'gatsby';
 
-class Home extends Component {
-
-    render() {
-        return (
-            <Fragment>
-                <Helmet>
-                    <meta charSet="utf-8" />
-                    <title>Caribbean Virus Tracker</title>
-                    <link rel="canonical" href="http://mysite.com/example" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta name="description" content="Web site to track Corona Virus throughout the Caribbean" />
-                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
-                    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-                </Helmet>
-                <Header />
-                    <main>
-                        <h1>Hello World</h1>
-                    </main>
-                <Footer />
-            </Fragment>
-        );
-    }
+const HomePage = ({data}) => {
+    return (
+        <Fragment>
+            <Header />
+                <main>
+                    <div class="container py-2">
+                        <div class="row">
+                            <div class="col=md-12">
+                                <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
+                                <h5><em>These are the latest reported Caribbean stats for the Coronavirus outbreak.</em></h5>
+                                <p>Some Caribbean countries may not be on the list because no Coronavirus infections were reported for that country. 
+                                Last Updated on <em>18th March 2020</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container py-2">
+                        <div class="row">
+                            <div class="col=md-12">
+                                <div class="table-responsive-md pb-3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Location</th>
+                                            <th scope="col">Reporting Date</th>
+                                            <th scope="col">Total Cases</th>
+                                            <th scope="col">New Cases</th>
+                                            <th scope="col">Total Deaths</th>
+                                            <th scope="col">New Deaths</th>
+                                            <th scope="col">Source</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {data.allCaribbeandataCsv.nodes.map((node) => (
+                                            <tr>
+                                            <td>{node.location}</td>
+                                            <td>{node.date}</td>
+                                            <td class="text-center">{node.total_cases}</td>
+                                            <td class="text-center">{node.new_cases}</td>
+                                            <td class="text-center">{node.total_deaths}</td>
+                                            <td class="text-center">{node.new_deaths}</td>
+                                            <td><a href={node.source_url} target="_blank" rel="noopener noreferrer">{node.source_name}</a></td>
+                                            </tr>
+                                        ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            <Footer />
+        </Fragment>
+    );
 }
 
-export default Home;
+export const query = graphql`
+query HomePageQuery {
+  allCaribbeandataCsv(sort: {fields: location, order: ASC}) {
+    nodes {
+      location
+      date
+      total_cases
+      new_cases
+      total_deaths
+      new_deaths
+      source_name
+      source_url
+    }
+  }
+}
+`
+
+export default HomePage;
