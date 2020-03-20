@@ -39,7 +39,7 @@ const Header = () => {
                            </Link>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="/"><i class="fa fa-fw fa-github-alt" aria-hidden="true"></i>GitHub</a>
+                           <a class="nav-link" href="https://github.com/obikag/caribbean-virus-tracker"><i class="fa fa-fw fa-github-alt" aria-hidden="true"></i>GitHub</a>
                         </li>
                      </ul>
                   </div>

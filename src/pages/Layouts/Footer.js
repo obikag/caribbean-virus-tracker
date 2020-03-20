@@ -8,7 +8,7 @@ const Footer = () => {
                   <div class="row">
                      <div class="col-md-12">
                         <h4 class="text-center">Disclaimer</h4>
-                        <p class="text-center">This list is managed voluntarily by Obika Gellineau</p>
+                        <p class="text-center">This list is managed voluntarily by <a class="text-white" href="/about">Obika Gellineau</a></p>
                         <p>While listing additions are sourced through the <a class="text-white" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">
                            <em>WHO Situation reports on CORVID-19</em></a> provided by the World Health Organization (WHO), the site's author cannot be responsible 
                            for any inaccuracies reported by WHO.</p>
@@ -16,7 +16,7 @@ const Footer = () => {
                   </div>
                   <div class="row">
                      <div class="col-md-12">
-                        <p class="text-center">Built by Obika Gellineau | Copyright {new Date().getFullYear()} All Rights Reserved.</p>
+                        <p class="text-center">Copyright &copy;{new Date().getFullYear()} All Rights Reserved.</p>
                      </div>
                   </div>
                </div>
