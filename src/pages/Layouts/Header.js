@@ -29,6 +29,11 @@ const Header = () => {
                            </Link>
                         </li>
                         <li class="nav-item">
+                           <Link to="/world/" className="nav-link">
+                              <i class="fa fa-fw fa-globe" aria-hidden="true"></i>World
+                           </Link>
+                        </li>
+                        <li class="nav-item">
                            <Link to="/about/" className="nav-link">
                               <i class="fa fa-fw fa-address-card" aria-hidden="true"></i>About
                            </Link>

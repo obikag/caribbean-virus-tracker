@@ -2,78 +2,8 @@ import React, { Fragment } from 'react';
 import { Header, Footer } from './Layouts';
 import { graphql } from 'gatsby';
 
-const TableRow = ({node, lastupdated}) => {
-    if(lastupdated === true){
-        return (
-        <Fragment>
-            <tr>
-            <td>{node.location}</td>
-            <td>{node.date}</td>
-            <td class="text-center">{node.total_cases}</td>
-            <td class="text-center">{node.new_cases}</td>
-            <td class="text-center">{node.total_deaths}</td>
-            <td class="text-center">{node.new_deaths}</td>
-            <td><a href={node.source_url} target="_blank" rel="noopener noreferrer">{node.source_name}</a></td>
-            </tr>
-        </Fragment>       
-        );  
-    }
-    return (
-        <Fragment>
-            <tr>
-            <td colspan="7" style={{display: "none"}}>
-                <a href={node.source_url} target="_blank" rel="noopener noreferrer">{node.source_name} ({node.date})</a>
-            </td>
-            </tr>
-        </Fragment>
-    );
-}
 
-const HomePage = ({data}) => {
-    function total_cases() {
-        let update_date = data.max_date.nodes[0].comparestring;
-        let count = 0;
-        data.all_data.nodes.forEach(node =>{
-            if(node.date === update_date) {
-                count=count+node.total_cases;
-            }
-        });
-        return count;
-    }
-
-    function total_new_cases() {
-        let update_date = data.max_date.nodes[0].comparestring;
-        let count = 0;
-        data.all_data.nodes.forEach(node =>{
-            if(node.date === update_date) {
-                count=count+node.new_cases;
-            }
-        });
-        return count;
-    }
-    
-    function total_deaths() {
-        let update_date = data.max_date.nodes[0].comparestring;
-        let count = 0;
-        data.all_data.nodes.forEach(node =>{
-            if(node.date === update_date) {
-                count=count+node.total_deaths;
-            }
-        });
-        return count;
-    }
-
-    function total_new_deaths() {
-        let update_date = data.max_date.nodes[0].comparestring;
-        let count = 0;
-        data.all_data.nodes.forEach(node =>{
-            if(node.date === update_date) {
-                count=count+node.new_deaths;
-            }
-        });
-        return count;
-    }
-
+const WorldPage = ({data}) => {
     return (
         <Fragment>
             <Header />
@@ -81,25 +11,18 @@ const HomePage = ({data}) => {
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
-                                <h5><em>These are the latest reported Caribbean stats for the Coronavirus outbreak.</em></h5>
-                                <p>Last Updated on <em>{data.max_date.nodes[0].updatedate}</em></p>
+                                <h1 class="header">World Outbreak Statistics</h1>
+                                <h5><em>These are the latest reported World stats for the Coronavirus outbreak.</em></h5>
+                                <p>Last Updated on <em>{data.latest_data.nodes[0].updatedate}</em></p>
                             </div>
                         </div>
                     </div>
                     <div class="container py-2">
                         <div class="row">
-                            <div class="col-md-12">
-                            <h2 class="header">Caribbean Outbreak Statistics</h2>
-                            <p><strong>Note: </strong>Some Caribbean countries may not be on the list because no Coronavirus infections were reported by that country. French, Dutch and U.S. Caribbean Territories are not included at the moment.</p> 
-                            <br></br>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_cases()}</strong></h1>
+                                        <h1><strong>{data.latest_data.nodes[0].total_cases}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">Total Cases</h5>
@@ -109,7 +32,7 @@ const HomePage = ({data}) => {
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_new_cases()}</strong></h1>
+                                        <h1><strong>{data.latest_data.nodes[0].new_cases}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">New Cases</h5>
@@ -119,7 +42,7 @@ const HomePage = ({data}) => {
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_deaths()}</strong></h1>
+                                        <h1><strong>{data.latest_data.nodes[0].total_deaths}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">Total Deaths</h5>
@@ -129,7 +52,7 @@ const HomePage = ({data}) => {
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_new_deaths()}</strong></h1>
+                                        <h1><strong>{data.latest_data.nodes[0].new_deaths}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">New Deaths</h5>
@@ -157,7 +80,15 @@ const HomePage = ({data}) => {
                                         </thead>
                                         <tbody>
                                         {data.all_data.nodes.map((node) => (
-                                            <TableRow node={node} lastupdated={node.date === data.max_date.nodes[0].comparestring}></TableRow>
+                                            <tr>
+                                            <td>{node.location}</td>
+                                            <td>{node.date}</td>
+                                            <td class="text-center">{node.total_cases}</td>
+                                            <td class="text-center">{node.new_cases}</td>
+                                            <td class="text-center">{node.total_deaths}</td>
+                                            <td class="text-center">{node.new_deaths}</td>
+                                            <td><a href={node.source_url} target="_blank" rel="noopener noreferrer">{node.source_name}</a></td>
+                                            </tr>
                                         ))}
                                         </tbody>
                                     </table>
@@ -172,8 +103,8 @@ const HomePage = ({data}) => {
 }
 
 export const query = graphql`
-query HomePageQuery {
-  all_data: allCaribbeandataCsv(filter: {location: {ne: "World"}}, sort: {fields: [location, date], order: [ASC, DESC]}) {
+query WorldPageQuery {
+  all_data: allCaribbeandataCsv(filter: {location: {eq: "World"}}, sort: {fields: [location, date], order: [ASC, DESC]}) {
     nodes {
       location
       date(formatString: "DD MMM YYYY")
@@ -185,8 +116,12 @@ query HomePageQuery {
       source_url
     }
   }
-  max_date: allCaribbeandataCsv(limit: 1, sort: {fields: date, order: DESC}) {
+  latest_data: allCaribbeandataCsv(sort: {fields: date, order: DESC}, filter: {location: {eq: "World"}}, limit: 1) {
     nodes {
+      total_cases
+      new_cases
+      total_deaths
+      new_deaths
       updatedate: date(formatString: "MMMM DD, YYYY")
       comparestring: date(formatString: "DD MMM YYYY")
     }
@@ -194,4 +129,4 @@ query HomePageQuery {
 }
 `
 
-export default HomePage;
+export default WorldPage;
