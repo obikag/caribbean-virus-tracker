@@ -1,4 +1,5 @@
 import React, { Fragment} from 'react';
+import { Link } from 'gatsby';
 
 const Footer = () => {
       return (
@@ -16,7 +17,7 @@ const Footer = () => {
                   </div>
                   <div class="row">
                      <div class="col-md-12">
-                        <p class="text-center">Copyright &copy;{new Date().getFullYear()} All Rights Reserved.</p>
+                        <p class="text-center"><Link to="/privacy-policy/" className="text-white"><strong>Privacy Policy</strong></Link> | Copyright &copy;{new Date().getFullYear()} All Rights Reserved.</p>
                      </div>
                   </div>
                </div>
