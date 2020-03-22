@@ -6,6 +6,14 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Caribbean Virus Tracker",
+    titleTemplate: "%s · Tracking the Coronavirus outbreak in the Caribbean",
+    description:
+      "Web site to track Coronavirus throughout the Caribbean",
+    url: "https://caribbeanvirustracker.com",
+    image: "/cvt-image.png",
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     {

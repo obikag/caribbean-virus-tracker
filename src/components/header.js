@@ -1,19 +1,30 @@
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'gatsby';
+import { StaticQuery, Link, graphql } from 'gatsby';
 
 const Header = () => {
       return (
          <Fragment>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Caribbean Virus Tracker</title>
-                <link rel="canonical" href="http://mysite.com/example" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="description" content="Web site to track Corona Virus throughout the Caribbean" />
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></link>
-            </Helmet>
+            <StaticQuery
+               query={query}
+               render={data => (
+                  <Helmet title={data.site.siteMetadata.defaultTitle} titleTemplate={data.site.siteMetadata.titleTemplate}>
+                     <meta charSet="utf-8" />
+                     <meta name="description" content={data.site.siteMetadata.defaultDescription} />
+                     <meta name="image" content={data.site.siteMetadata.defaultImage} />
+                     {data.site.siteMetadata.siteUrl && <meta property="og:url" content={data.site.siteMetadata.siteUrl} />}
+                     {data.site.siteMetadata.defaultTitle && <meta property="og:title" content={data.site.siteMetadata.defaultTitle} />}
+                     {data.site.siteMetadata.defaultDescription && (
+                     <meta property="og:description" content={data.site.siteMetadata.defaultDescription} />
+                     )}
+                     {data.site.siteMetadata.defaultImage && <meta property="og:image" content={data.site.siteMetadata.defaultImage} />}
+                     {data.site.siteMetadata.siteUrl && <link rel="canonical" href={data.site.siteMetadata.siteUrl} />}
+                     <meta name="viewport" content="width=device-width, initial-scale=1" />
+                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></link>
+                  </Helmet>
+               )}
+            />
             <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-primary">
                <div class="container">
@@ -56,3 +67,17 @@ const Header = () => {
 }
 
 export default Header;
+
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        defaultTitle: title
+        titleTemplate
+        defaultDescription: description
+        siteUrl: url
+        defaultImage: image
+      }
+    }
+  }
+`

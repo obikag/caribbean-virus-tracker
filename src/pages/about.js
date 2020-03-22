@@ -36,7 +36,7 @@ const AboutPage = () => {
                     <div class="container border py-5">
                         <div class="row">
                             <div class="col-md-3 text-center">
-                                <img src={'/avatar.png'} alt="John" style={{width: '150px', borderRadius: '50%'}}/>
+                                <img src={'/profile.jpg'} alt="John" style={{width: '150px', borderRadius: '50%'}}/>
                             </div>
                             <div class="col-md-9">
                                 <h1 class="header">Obika Gellineau</h1>
