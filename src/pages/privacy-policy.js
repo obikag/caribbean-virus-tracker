@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { Header, Footer } from './Layouts';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const PrivacyPolicyPage = () => {
     return (
