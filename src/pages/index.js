@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 const TableRow = ({node, lastupdated}) => {
     if(lastupdated === true){
@@ -30,7 +30,8 @@ const TableRow = ({node, lastupdated}) => {
     );
 }
 
-const HomePage = ({data}) => {
+
+const HomePage = ({data, location}) => {
     function total_cases() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
@@ -75,6 +76,55 @@ const HomePage = ({data}) => {
         return count;
     }
 
+    //Define a callback to fall back on if URLSearchparams is unavailable
+    function getQueryParamFallback(param){
+        const match = RegExp('[?&]' + param + '=([^&]*)').exec(location.search);
+        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }
+
+
+    /**
+     *  Get the "sort" query from the url, which corresponds to the field for each node
+     * 
+     * @param {string} param String representing the field to sort by. Example: total_cases 
+     */
+    function getUrlParam(param){        
+        return (URLSearchParams) ? new URLSearchParams(location.search).get(param) :
+        getQueryParamFallback(param);
+    }
+
+    
+    /**
+     * Get the appropriate sort function for the array, based on the field name
+     * and whether or not to sort by descending
+     * 
+     * @param {string} field Name of the field to sort by
+     * @param {boolean} descending Whether to sort by descending or not
+     */
+    function get_sort_function (field, descending){
+        return (a, b)=>{
+            const first = a[field];
+            const second = b[field];
+            if(descending){
+                return (second < first) ? -1 : ((second > first) ? 1 : 0); 
+            }           
+            return (first < second) ? -1 : ((first > second) ? 1 : 0);
+        }
+    }
+
+    const field = getUrlParam("sort");
+    let descending_param = getUrlParam("descending"); //can possibly be changed to default later, so not const
+    let descending = false;
+    if(field){
+        if(descending_param === "true"){
+            descending = true;
+        }
+        data.all_data.nodes.sort(get_sort_function(field, descending));
+    }
+
+    
+    
+    
     return (
         <Fragment>
             <Header />
@@ -83,7 +133,7 @@ const HomePage = ({data}) => {
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
-                                <h5><em>These are the latest reported statistics by the World Health Organization (WHO) for Coronavirus outbreak in the Caribbean.</em></h5>
+                                <h5><em>These are the latest reported Caribbean stats for the Coronavirus outbreak.</em></h5>
                                 <p>Last Updated on <em>{data.max_date.nodes[0].updatedate}</em></p>
                             </div>
                         </div>
@@ -92,7 +142,7 @@ const HomePage = ({data}) => {
                         <div class="row">
                             <div class="col-md-12">
                             <h2 class="header">Caribbean Outbreak Statistics</h2>
-                            <p><strong>Note: </strong>Some Caribbean countries may not be on the list because no Coronavirus infections were reported by that country to WHO <em>(see Disclaimer)</em>. French, Dutch and U.S. Caribbean Territories are not included at the moment.</p> 
+                            <p><strong>Note: </strong>Some Caribbean countries may not be on the list because no Coronavirus infections were reported by that country. French, Dutch and U.S. Caribbean Territories are not included at the moment.</p> 
                             <br></br>
                             </div>
                         </div>
@@ -147,12 +197,22 @@ const HomePage = ({data}) => {
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                            <th scope="col">Location</th>
+                                            <th scope="col">
+                                                <Link to={`/?sort=location&descending=${!descending}`}>Location</Link>
+                                            </th>
                                             <th scope="col">Reporting Date</th>
-                                            <th scope="col">Total Cases</th>
-                                            <th scope="col">New Cases</th>
-                                            <th scope="col">Total Deaths</th>
-                                            <th scope="col">New Deaths</th>
+                                            <th scope="col">
+                                                <Link to={`/?sort=total_cases&descending=${!descending}`}>Total Cases</Link>
+                                            </th>
+                                            <th scope="col">
+                                                <Link to={`/?sort=new_cases&descending=${!descending}`}>New Cases</Link>
+                                            </th>
+                                            <th scope="col">
+                                                <Link to={`/?sort=total_deaths&descending=${!descending}`}>Total Deaths</Link>
+                                            </th>
+                                            <th scope="col">
+                                                <Link to={`/?sort=new_deaths&descending=${!descending}`}>New Deaths</Link>
+                                            </th>
                                             <th scope="col">Source</th>
                                             </tr>
                                         </thead>
