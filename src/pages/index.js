@@ -83,7 +83,7 @@ const HomePage = ({data}) => {
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
-                                <h5><em>These are the latest reported Caribbean stats for the Coronavirus outbreak.</em></h5>
+                                <h5><em>These are the latest reported statistics by the World Health Organization (WHO) for Coronavirus outbreak in the Caribbean.</em></h5>
                                 <p>Last Updated on <em>{data.max_date.nodes[0].updatedate}</em></p>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ const HomePage = ({data}) => {
                         <div class="row">
                             <div class="col-md-12">
                             <h2 class="header">Caribbean Outbreak Statistics</h2>
-                            <p><strong>Note: </strong>Some Caribbean countries may not be on the list because no Coronavirus infections were reported by that country. French, Dutch and U.S. Caribbean Territories are not included at the moment.</p> 
+                            <p><strong>Note: </strong>Some Caribbean countries may not be on the list because no Coronavirus infections were reported by that country to WHO <em>(see Disclaimer)</em>. French, Dutch and U.S. Caribbean Territories are not included at the moment.</p> 
                             <br></br>
                             </div>
                         </div>
