@@ -31,8 +31,7 @@ const TableRow = ({node, lastupdated}) => {
 }
 
 
-const HomePage = ({data}) => {
-
+const HomePage = ({data, location}) => {
     function total_cases() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
@@ -79,7 +78,7 @@ const HomePage = ({data}) => {
 
     //Define a callback to fall back on if URLSearchparams is unavailable
     function getQueryParamFallback(param){
-        const match = RegExp('[?&]' + param + '=([^&]*)').exec(window.location.search);
+        const match = RegExp('[?&]' + param + '=([^&]*)').exec(location.search);
         return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
 
@@ -89,8 +88,8 @@ const HomePage = ({data}) => {
      * 
      * @param {string} param String representing the field to sort by. Example: total_cases 
      */
-    function getUrlParam(param){
-        return (URLSearchParams) ? new URLSearchParams(window.location.search).get(param) :
+    function getUrlParam(param){        
+        return (URLSearchParams) ? new URLSearchParams(location.search).get(param) :
         getQueryParamFallback(param);
     }
 
