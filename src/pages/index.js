@@ -9,12 +9,16 @@ const TableRow = ({node, lastupdated}) => {
         <Fragment>
             <tr>
             <td>{node.location}</td>
-            <td>{node.date}</td>
-            <td class="text-center">{node.total_cases}</td>
-            <td class="text-center">{node.new_cases}</td>
-            <td class="text-center">{node.total_deaths}</td>
-            <td class="text-center">{node.new_deaths}</td>
-            <td><a href={node.source_url} target="_blank" rel="noopener noreferrer">{node.source_name}</a></td>
+            <td>
+                <div>{node.date}</div>
+                <div><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a></div>
+                <div><a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a></div>
+            </td>
+            <td class="text-center">{node.total_cases_1 > node.total_cases_2 ? node.total_cases_1 : node.total_cases_2}</td>
+            <td class="text-center">{node.new_cases_1 > node.new_cases_2 ? node.new_cases_1 : node.new_cases_2}</td>
+            <td class="text-center">{node.total_deaths_1 > node.total_deaths_2 ? node.total_deaths_1 : node.total_deaths_2}</td>
+            <td class="text-center">{node.new_deaths_1 > node.new_deaths_2 ? node.new_deaths_1 : node.new_deaths_2}</td>
+            <td class="text-center">{node.recovered}</td>
             </tr>
         </Fragment>       
         );  
@@ -23,7 +27,7 @@ const TableRow = ({node, lastupdated}) => {
         <Fragment>
             <tr>
             <td colspan="7" style={{display: "none"}}>
-                <a href={node.source_url} target="_blank" rel="noopener noreferrer">{node.source_name} ({node.date})</a>
+                <a href={node.source_url_1} target="_blank" rel="noopener noreferrer">{node.source_name_1} ({node.date})</a>
             </td>
             </tr>
         </Fragment>
@@ -37,7 +41,11 @@ const HomePage = ({data, location}) => {
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                count=count+node.total_cases;
+                if(node.total_cases_1 > node.total_cases_2){
+                    count=count+node.total_cases_1;
+                } else {
+                    count=count+node.total_cases_2;
+                }
             }
         });
         return count;
@@ -48,7 +56,11 @@ const HomePage = ({data, location}) => {
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                count=count+node.new_cases;
+                if(node.new_cases_1 > node.new_cases_2){
+                    count=count+node.new_cases_1;    
+                } else {
+                    count=count+node.new_cases_2;
+                }
             }
         });
         return count;
@@ -59,7 +71,11 @@ const HomePage = ({data, location}) => {
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                count=count+node.total_deaths;
+                if(node.total_deaths_1 > node.total_deaths_2){
+                    count=count+node.total_deaths_1;
+                } else {
+                    count=count+node.total_deaths_2;
+                }
             }
         });
         return count;
@@ -70,7 +86,11 @@ const HomePage = ({data, location}) => {
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                count=count+node.new_deaths;
+                if(node.new_deaths_1 > node.new_deaths_2){
+                    count=count+node.new_deaths_1;
+                } else {
+                    count=count+node.new_deaths_2;
+                }
             }
         });
         return count;
@@ -194,13 +214,13 @@ const HomePage = ({data, location}) => {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive-md pb-3">
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                             <th scope="col">
                                                 <Link to={`/?sort=location&descending=${!descending}`}>Location</Link>
                                             </th>
-                                            <th scope="col">Reporting Date</th>
+                                            <th scope="col">Reporting Date/Source</th>
                                             <th scope="col">
                                                 <Link to={`/?sort=total_cases&descending=${!descending}`}>Total Cases</Link>
                                             </th>
@@ -213,7 +233,7 @@ const HomePage = ({data, location}) => {
                                             <th scope="col">
                                                 <Link to={`/?sort=new_deaths&descending=${!descending}`}>New Deaths</Link>
                                             </th>
-                                            <th scope="col">Source</th>
+                                            <th scope="col">Recovered</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -238,12 +258,19 @@ query HomePageQuery {
     nodes {
       location
       date(formatString: "DD MMM YYYY")
-      total_cases
-      new_cases
-      total_deaths
-      new_deaths
-      source_name
-      source_url
+      total_cases_1
+      total_cases_2
+      new_cases_1
+      new_cases_2
+      total_deaths_1
+      total_deaths_2
+      new_deaths_1
+      new_deaths_2
+      recovered
+      source_name_1
+      source_url_1
+      source_name_2
+      source_url_2
     }
   }
   max_date: allCaribbeandataCsv(limit: 1, sort: {fields: date, order: DESC}) {
