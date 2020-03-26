@@ -14,7 +14,7 @@ const WorldPage = ({data}) => {
                             <div class="col-md-12">
                                 <h1 class="header">World Outbreak Statistics</h1>
                                 <h5><em>These are the latest reported World stats for the Coronavirus outbreak.</em></h5>
-                                <p>Last Updated on <em>{data.latest_data.nodes[0].updatedate}</em></p>
+                                <p><strong>Last Updated on </strong><em>{data.latest_data.nodes[0].updatedate}</em></p>
                             </div>
                         </div>
                     </div>
