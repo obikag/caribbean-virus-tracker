@@ -1,9 +1,16 @@
 import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 const TableRow = ({node, lastupdated}) => {
+
+    node.total_cases = Math.max(node.total_cases_1, node.total_cases_2);
+    node.new_cases = Math.max(node.new_cases_1, node.new_cases_2);
+    node.total_deaths = Math.max(node.total_deaths_1, node.total_deaths_2);
+    node.new_deaths = Math.max(node.new_deaths_1, node.new_deaths_2);
+
     if(lastupdated === true){
         return (
         <Fragment>
@@ -14,10 +21,10 @@ const TableRow = ({node, lastupdated}) => {
                 <div><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a></div>
                 <div><a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a></div>
             </td>
-            <td class="text-center">{node.total_cases_1 > node.total_cases_2 ? node.total_cases_1 : node.total_cases_2}</td>
-            <td class="text-center">{node.new_cases_1 > node.new_cases_2 ? node.new_cases_1 : node.new_cases_2}</td>
-            <td class="text-center">{node.total_deaths_1 > node.total_deaths_2 ? node.total_deaths_1 : node.total_deaths_2}</td>
-            <td class="text-center">{node.new_deaths_1 > node.new_deaths_2 ? node.new_deaths_1 : node.new_deaths_2}</td>
+            <td class="text-center">{node.total_cases}</td>
+            <td class="text-center">{node.new_cases}</td>
+            <td class="text-center">{node.total_deaths}</td>
+            <td class="text-center">{node.new_deaths}</td>
             <td class="text-center">{node.recovered}</td>
             </tr>
         </Fragment>       
@@ -36,61 +43,46 @@ const TableRow = ({node, lastupdated}) => {
 
 
 const HomePage = ({data, location}) => {
-    function total_cases() {
+
+    function totalCases() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                if(node.total_cases_1 > node.total_cases_2){
-                    count=count+node.total_cases_1;
-                } else {
-                    count=count+node.total_cases_2;
-                }
+                count += Math.max(node.total_cases_1, node.total_cases_2);
             }
         });
         return count;
     }
 
-    function total_new_cases() {
+    function totalNewCases() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                if(node.new_cases_1 > node.new_cases_2){
-                    count=count+node.new_cases_1;    
-                } else {
-                    count=count+node.new_cases_2;
-                }
+                count +=  Math.max(node.new_cases_1, node.new_cases_2);
             }
         });
         return count;
     }
     
-    function total_deaths() {
+    function totalDeaths() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                if(node.total_deaths_1 > node.total_deaths_2){
-                    count=count+node.total_deaths_1;
-                } else {
-                    count=count+node.total_deaths_2;
-                }
+                count += Math.max(node.total_deaths_1, node.total_deaths_2);
             }
         });
         return count;
     }
 
-    function total_new_deaths() {
+    function totalNewDeaths() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                if(node.new_deaths_1 > node.new_deaths_2){
-                    count=count+node.new_deaths_1;
-                } else {
-                    count=count+node.new_deaths_2;
-                }
+                count += Math.max(node.new_deaths_1, node.new_deaths_2);
             }
         });
         return count;
@@ -120,8 +112,9 @@ const HomePage = ({data, location}) => {
      * 
      * @param {string} field Name of the field to sort by
      * @param {boolean} descending Whether to sort by descending or not
+     * @returns {function} The sorting function to pass to data.all_data.nodes.sort()
      */
-    function get_sort_function (field, descending){
+    function getSortFunction(field, descending){
         return (a, b)=>{
             const first = a[field];
             const second = b[field];
@@ -133,18 +126,19 @@ const HomePage = ({data, location}) => {
     }
 
     const field = getUrlParam("sort");
-    let descending_param = getUrlParam("descending"); //can possibly be changed to default later, so not const
+
+    const descendingParam = getUrlParam("descending"); 
+    
     let descending = false;
+    
     if(field){
-        if(descending_param === "true"){
+        if(descendingParam === "true"){
             descending = true;
         }
-        data.all_data.nodes.sort(get_sort_function(field, descending));
+        data.all_data.nodes.sort(getSortFunction(field, descending));
+        
     }
 
-    
-    
-    
     return (
         <Fragment>
             <Header />
@@ -181,7 +175,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_cases()}</strong></h1>
+                                        <h1><strong>{totalCases()}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">Total Cases</h5>
@@ -191,7 +185,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_new_cases()}</strong></h1>
+                                        <h1><strong>{totalNewCases()}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">New Cases</h5>
@@ -201,7 +195,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_deaths()}</strong></h1>
+                                        <h1><strong>{totalDeaths()}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">Total Deaths</h5>
@@ -211,7 +205,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-header text-center">
-                                        <h1><strong>{total_new_deaths()}</strong></h1>
+                                        <h1><strong>{totalNewDeaths()}</strong></h1>
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title text-center">New Deaths</h5>
@@ -225,24 +219,24 @@ const HomePage = ({data, location}) => {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive-md pb-3">
-                                    <table class="table table-bordered">
+                                    <table id="table" class="table table-bordered">
                                         <thead>
                                             <tr>
                                             <th scope="col">
-                                                <Link to={`/?sort=location&descending=${!descending}`}>Location</Link>
+                                                <AnchorLink  to={`/?sort=location&descending=${!descending}#table`}>Location</AnchorLink >
                                             </th>
                                             <th scope="col">Reporting Date/Source</th>
                                             <th scope="col">
-                                                <Link to={`/?sort=total_cases&descending=${!descending}`}>Total Cases</Link>
+                                                <AnchorLink to={`/?sort=total_cases&descending=${!descending}#table`}>Total Cases</AnchorLink>
                                             </th>
                                             <th scope="col">
-                                                <Link to={`/?sort=new_cases&descending=${!descending}`}>New Cases</Link>
+                                                <AnchorLink to={`/?sort=new_cases&descending=${!descending}#table`}>New Cases</AnchorLink>
                                             </th>
                                             <th scope="col">
-                                                <Link to={`/?sort=total_deaths&descending=${!descending}`}>Total Deaths</Link>
+                                                <AnchorLink to={`/?sort=total_deaths&descending=${!descending}#table`}>Total Deaths</AnchorLink>
                                             </th>
                                             <th scope="col">
-                                                <Link to={`/?sort=new_deaths&descending=${!descending}`}>New Deaths</Link>
+                                                <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>New Deaths</AnchorLink>
                                             </th>
                                             <th scope="col">Recovered</th>
                                             </tr>
