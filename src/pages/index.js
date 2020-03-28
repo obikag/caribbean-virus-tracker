@@ -34,7 +34,16 @@ const TableRow = ({node, lastupdated}) => {
         <Fragment>
             <tr>
             <td colspan="7" style={{display: "none"}}>
-                <a href={node.source_url_1} target="_blank" rel="noopener noreferrer">{node.source_name_1} ({node.date})</a>
+                <span class="badge badge-pill badge-info">{node.date}</span>
+                <a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a>
+                <a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a>
+                <span>|</span>
+                <span class="badge badge-pill badge-warning">{node.total_cases}</span>
+                <span class="badge badge-pill badge-dark">{node.new_cases}</span>
+                <span class="badge badge-pill badge-darnger">{node.total_deaths}</span>
+                <span class="badge badge-pill badge-dark">{node.new_deaths}</span>
+                <span class="badge badge-pill badge-success">{node.recovered}</span>
+                <span>|</span>
             </td>
             </tr>
         </Fragment>
@@ -162,8 +171,8 @@ const HomePage = ({data, location}) => {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                French, Dutch and U.S. Caribbean Territories are not included at the moment.
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong>Most</strong> French, Dutch and U.S. Caribbean Territories are included. Others are forthcoming.
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
