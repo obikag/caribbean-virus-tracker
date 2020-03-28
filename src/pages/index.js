@@ -40,7 +40,7 @@ const TableRow = ({node, lastupdated}) => {
                 <span>|</span>
                 <span class="badge badge-pill badge-warning">{node.total_cases}</span>
                 <span class="badge badge-pill badge-dark">{node.new_cases}</span>
-                <span class="badge badge-pill badge-darnger">{node.total_deaths}</span>
+                <span class="badge badge-pill badge-danger">{node.total_deaths}</span>
                 <span class="badge badge-pill badge-dark">{node.new_deaths}</span>
                 <span class="badge badge-pill badge-success">{node.recovered}</span>
                 <span>|</span>
@@ -164,7 +164,9 @@ const HomePage = ({data, location}) => {
                         <div class="row">
                             <div class="col-md-12">
                             <h2 class="header">Caribbean Outbreak Statistics</h2>
-                            <p><strong>Last Updated on </strong><em>{data.max_date.nodes[0].updatedate}</em></p>
+                            <div class="pb-2">
+                            <p>Last Updated on <span class="badge badge-dark"><strong>{data.max_date.nodes[0].updatedate}</strong></span></p>
+                            </div>
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 <strong>Note: </strong>Some Caribbean countries may not be on the list because no Coronavirus infections were reported by that country <em>(see Disclaimer below)</em>.
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
