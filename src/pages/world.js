@@ -5,6 +5,11 @@ import { graphql } from 'gatsby';
 
 
 const WorldPage = ({data}) => {
+    
+    function numFormatter(num){
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    }
+
     return (
         <Fragment>
             <Header />
@@ -14,49 +19,55 @@ const WorldPage = ({data}) => {
                             <div class="col-md-12">
                                 <h1 class="header">World Outbreak Statistics</h1>
                                 <h5><em>These are the latest reported World stats for the Coronavirus outbreak.</em></h5>
-                                <p><strong>Last Updated on </strong><em>{data.latest_data.nodes[0].updatedate}</em></p>
+                                <div class="alert alert-info" role="alert">
+                                    <h5>Last Updated on <strong>{data.latest_data.nodes[0].updatedate}</strong></h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
-                                        <h1><strong>{data.latest_data.nodes[0].total_cases_1}</strong></h1>
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-success">
+                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].total_cases_1)}</strong></h1>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">Total Cases</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
-                                        <h1><strong>{data.latest_data.nodes[0].new_cases_1}</strong></h1>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">New Cases</h5>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Total Cases</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Total confirmed Coronavirus infections</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
-                                        <h1><strong>{data.latest_data.nodes[0].total_deaths_1}</strong></h1>
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-warning">
+                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].new_cases_1)}</strong></h1>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">Total Deaths</h5>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">New Cases</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Newly reported Coronavirus infections</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
-                                        <h1><strong>{data.latest_data.nodes[0].new_deaths_1}</strong></h1>
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-danger">
+                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].total_deaths_1)}</strong></h1>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">New Deaths</h5>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Total Deaths</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Total confirmed deaths linked to Coronavirus</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-dark">
+                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].new_deaths_1)}</strong></h1>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">New Deaths</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Newly reported deaths linked to Coronavirus</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,10 +97,10 @@ const WorldPage = ({data}) => {
                                                 <div>{node.date}</div>
                                                 <div><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a></div>
                                             </td>
-                                            <td class="text-center">{node.total_cases_1}</td>
-                                            <td class="text-center">{node.new_cases_1}</td>
-                                            <td class="text-center">{node.total_deaths_1}</td>
-                                            <td class="text-center">{node.new_deaths_1}</td>
+                                            <td class="text-center">{numFormatter(node.total_cases_1)}</td>
+                                            <td class="text-center">{numFormatter(node.new_cases_1)}</td>
+                                            <td class="text-center">{numFormatter(node.total_deaths_1)}</td>
+                                            <td class="text-center">{numFormatter(node.new_deaths_1)}</td>
                                             </tr>
                                         ))}
                                         </tbody>

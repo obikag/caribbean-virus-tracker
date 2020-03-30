@@ -61,7 +61,7 @@ const HomePage = ({data, location}) => {
                 count += Math.max(node.total_cases_1, node.total_cases_2);
             }
         });
-        return count;
+        return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     }
 
     function totalNewCases() {
@@ -72,7 +72,7 @@ const HomePage = ({data, location}) => {
                 count +=  Math.max(node.new_cases_1, node.new_cases_2);
             }
         });
-        return count;
+        return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     }
     
     function totalDeaths() {
@@ -83,7 +83,7 @@ const HomePage = ({data, location}) => {
                 count += Math.max(node.total_deaths_1, node.total_deaths_2);
             }
         });
-        return count;
+        return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     }
 
     function totalNewDeaths() {
@@ -94,7 +94,7 @@ const HomePage = ({data, location}) => {
                 count += Math.max(node.new_deaths_1, node.new_deaths_2);
             }
         });
-        return count;
+        return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     }
 
     //Define a callback to fall back on if URLSearchparams is unavailable
@@ -164,68 +164,59 @@ const HomePage = ({data, location}) => {
                         <div class="row">
                             <div class="col-md-12">
                             <h2 class="header">Caribbean Outbreak Statistics</h2>
-                            <div class="pb-2">
-                            <p>Last Updated on <span class="badge badge-dark"><strong>{data.max_date.nodes[0].updatedate}</strong></span></p>
-                            </div>
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Note: </strong>Some Caribbean countries may not be on the list because no Coronavirus infections were reported by that country <em>(see Disclaimer below)</em>.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                <strong>Most</strong> French, Dutch and U.S. Caribbean Territories are included. Others are forthcoming.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <div class="alert alert-info" role="alert">
+                                <h5>Last Updated on <strong>{data.max_date.nodes[0].updatedate}</strong></h5>
                             </div>
                             <br></br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-success">
                                         <h1><strong>{totalCases()}</strong></h1>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">Total Cases</h5>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Total Cases</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Total confirmed Coronavirus infections</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-warning">
                                         <h1><strong>{totalNewCases()}</strong></h1>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">New Cases</h5>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">New Cases</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Newly reported Coronavirus infections</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-danger">
                                         <h1><strong>{totalDeaths()}</strong></h1>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">Total Deaths</h5>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Total Deaths</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Total confirmed deaths linked to Coronavirus</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="card">
-                                    <div class="card-header text-center">
+                                <div class="card mb-3">
+                                    <div class="card-header text-center text-white bg-dark">
                                         <h1><strong>{totalNewDeaths()}</strong></h1>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center">New Deaths</h5>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">New Deaths</h5>
+                                        <p class="card-text" style={{fontSize: "10px"}}>Newly reported deaths linked to Coronavirus</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br></br>
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">
