@@ -15,11 +15,12 @@ const TableRow = ({node, lastupdated}) => {
         return (
         <Fragment>
             <tr>
-            <td>{node.location}</td>
             <td>
-                <div>{node.date}</div>
+                <div>{node.location}</div>
                 <div><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a></div>
-                <div><a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a></div>
+                {node.source_url_2 && 
+                    <div><a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a></div>
+                }
             </td>
             <td class="text-center">{node.total_cases}</td>
             <td class="text-center">{node.new_cases}</td>
@@ -33,7 +34,7 @@ const TableRow = ({node, lastupdated}) => {
     return (
         <Fragment>
             <tr>
-            <td colspan="7" style={{display: "none"}}>
+            <td colspan="6" style={{display: "none"}}>
                 <span class="badge badge-pill badge-info">{node.date}</span>
                 <a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a>
                 <a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a>
@@ -227,7 +228,6 @@ const HomePage = ({data, location}) => {
                                             <th scope="col">
                                                 <AnchorLink  to={`/?sort=location&descending=${!descending}#table`}>Location</AnchorLink >
                                             </th>
-                                            <th scope="col">Reporting Date/Source</th>
                                             <th scope="col">
                                                 <AnchorLink to={`/?sort=total_cases&descending=${!descending}#table`}>Total Cases</AnchorLink>
                                             </th>

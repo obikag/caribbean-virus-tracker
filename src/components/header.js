@@ -26,7 +26,7 @@ const Header = () => {
                )}
             />
             <header>
-            <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <nav class="navbar navbar-expand-md navbar-light" style={{backgroundColor: "#ece136"}}>
                <div class="container">
                   <a class="navbar-brand" href="/"><strong>Caribbean Virus Tracker</strong></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-links" aria-controls="menuLinks" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,7 +75,7 @@ const query = graphql`
         defaultTitle: title
         titleTemplate
         defaultDescription: description
-        siteUrl: url
+        siteUrl: siteUrl
         defaultImage: image
       }
     }

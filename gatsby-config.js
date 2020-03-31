@@ -11,12 +11,14 @@ module.exports = {
     titleTemplate: "%s · Tracking the Coronavirus outbreak in the Caribbean",
     description:
       "Web site to track Coronavirus throughout the Caribbean",
-    url: "https://caribbeanvirustracker.com",
+    siteUrl: "https://caribbeanvirustracker.com",
     image: "/cvt-image.png",
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-anchor-links',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -24,7 +26,6 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
-    //'gatsby-transformer-csv',
     {
       resolve: 'gatsby-transformer-csv',
       options:{
@@ -35,6 +36,8 @@ module.exports = {
               return dateObject;
           },
           "location": "string",
+          "latitude": "omit",
+          "longitude": "omit",
           "total_cases_1": "number",
           "total_cases_2": "number",
           "new_cases_1": "number",
@@ -49,7 +52,18 @@ module.exports = {
           "source_name_2": "string",
           "source_url_2": "string",
         },   
-      }
-    }
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Caribbean Virus Tracker',
+        short_name: 'CaribbeanVirusTracker',
+        start_url: '/',
+        background_color: '#dfdcf2',
+        theme_color: '#016a87',
+        display: 'standalone',
+      },
+    },
   ]
 }
