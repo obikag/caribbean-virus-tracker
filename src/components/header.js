@@ -35,24 +35,24 @@ const Header = () => {
                   </button>
                   <div class="collapse navbar-collapse" id="menu-links">
                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                           <Link to="/" className="nav-link">
-                              <i class="fa fa-fw fa-home" aria-hidden="true"></i>Home<span class="sr-only"></span>
+                        <li class="nav-item">
+                           <Link to="/" className="nav-link" activeClassName="active">
+                              <i class="fa fa-fw fa-home" aria-hidden="true"></i>&nbsp;Home<span class="sr-only"></span>
                            </Link>
                         </li>
                         <li class="nav-item">
-                           <Link to="/world/" className="nav-link">
-                              <i class="fa fa-fw fa-globe" aria-hidden="true"></i>World
+                           <Link to="/world/" className="nav-link" activeClassName="active">
+                              <i class="fa fa-fw fa-globe" aria-hidden="true"></i>&nbsp;World
                            </Link>
                         </li>
                         <li class="nav-item">
-                           <Link to="/about/" className="nav-link">
-                              <i class="fa fa-fw fa-address-card" aria-hidden="true"></i>About
+                           <Link to="/about/" className="nav-link" activeClassName="active">
+                              <i class="fa fa-fw fa-address-card" aria-hidden="true"></i>&nbsp;About
                            </Link>
                         </li>
                         <li class="nav-item">
-                           <Link to="/faq/" className="nav-link">
-                              <i class="fa fa-fw fa-question-circle" aria-hidden="true"></i>FAQ
+                           <Link to="/faq/" className="nav-link" activeClassName="active">
+                              <i class="fa fa-fw fa-question-circle" aria-hidden="true"></i>&nbsp;FAQ
                            </Link>
                         </li>
                         <li class="nav-item">
