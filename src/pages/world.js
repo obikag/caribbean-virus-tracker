@@ -19,7 +19,7 @@ const WorldPage = ({data}) => {
                             <div class="col-md-12">
                                 <h1 class="header">World Outbreak Statistics</h1>
                                 <h5><em>These are the latest reported World stats for the Coronavirus outbreak.</em></h5>
-                                <div class="alert alert-info" role="alert">
+                                <div class="alert alert-info text-center" role="alert">
                                     <h5>Last Updated on <strong>{data.latest_data.nodes[0].updatedate}</strong></h5>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@ const WorldPage = ({data}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-success">
-                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].total_cases_1)}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].total_cases_1)}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Total Cases</h5>
@@ -41,7 +41,7 @@ const WorldPage = ({data}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-warning">
-                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].new_cases_1)}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].new_cases_1)}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">New Cases</h5>
@@ -52,7 +52,7 @@ const WorldPage = ({data}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-danger">
-                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].total_deaths_1)}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].total_deaths_1)}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Total Deaths</h5>
@@ -63,7 +63,7 @@ const WorldPage = ({data}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-dark">
-                                        <h1><strong>{numFormatter(data.latest_data.nodes[0].new_deaths_1)}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].new_deaths_1)}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">New Deaths</h5>
@@ -82,7 +82,6 @@ const WorldPage = ({data}) => {
                                         <thead>
                                             <tr>
                                             <th scope="col">Location</th>
-                                            <th scope="col">Reporting Date/Source</th>
                                             <th scope="col">Total Cases</th>
                                             <th scope="col">New Cases</th>
                                             <th scope="col">Total Deaths</th>
@@ -92,9 +91,8 @@ const WorldPage = ({data}) => {
                                         <tbody>
                                         {data.all_data.nodes.map((node) => (
                                             <tr>
-                                            <td>{node.location}</td>
                                             <td>
-                                                <div>{node.date}</div>
+                                                <div>{node.location}</div>
                                                 <div><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a></div>
                                             </td>
                                             <td class="text-center">{numFormatter(node.total_cases_1)}</td>

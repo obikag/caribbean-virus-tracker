@@ -20,15 +20,16 @@ const Header = () => {
                      {data.site.siteMetadata.defaultImage && <meta property="og:image" content={data.site.siteMetadata.defaultImage} />}
                      {data.site.siteMetadata.siteUrl && <link rel="canonical" href={data.site.siteMetadata.siteUrl} />}
                      <meta name="viewport" content="width=device-width, initial-scale=1" />
+                     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet"></link>
                      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
-                     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></link>
+                     <script src="https://kit.fontawesome.com/e2a9dab6a2.js" crossorigin="anonymous"></script>
                   </Helmet>
                )}
             />
             <header>
             <nav class="navbar navbar-expand-md navbar-light" style={{backgroundColor: "#ece136"}}>
                <div class="container">
-                  <a class="navbar-brand" href="/"><strong>Caribbean Virus Tracker</strong></a>
+                  <a class="navbar-brand" href="/"><i class="fa fa-shield-virus fa-lg"></i> <span><strong>Caribbean Virus Tracker</strong></span></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-links" aria-controls="menuLinks" aria-expanded="false" aria-label="Toggle navigation">
                      <span class="navbar-toggler-icon"></span>
                   </button>

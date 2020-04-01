@@ -35,16 +35,16 @@ const TableRow = ({node, lastupdated}) => {
         <Fragment>
             <tr>
             <td colspan="6" style={{display: "none"}}>
-                <span class="badge badge-pill badge-info">{node.date}</span>
-                <a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a>
-                <a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a>
-                <span>|</span>
-                <span class="badge badge-pill badge-warning">{node.total_cases}</span>
-                <span class="badge badge-pill badge-dark">{node.new_cases}</span>
-                <span class="badge badge-pill badge-danger">{node.total_deaths}</span>
-                <span class="badge badge-pill badge-dark">{node.new_deaths}</span>
-                <span class="badge badge-pill badge-success">{node.recovered}</span>
-                <span>|</span>
+                <span class="badge badge-pill badge-info">{node.date} </span>
+                <span><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a> </span>
+                <span><a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a> </span>
+                <span> | </span>
+                <span class="badge badge-pill badge-success">Total Cases: {node.total_cases}</span>
+                <span class="badge badge-pill badge-warning">New Cases: {node.new_cases}</span>
+                <span class="badge badge-pill badge-danger">Total Deaths: {node.total_deaths}</span>
+                <span class="badge badge-pill badge-dark">New Deaths: {node.new_deaths}</span>
+                <span class="badge badge-pill badge-primary">Recovered: {node.recovered}</span>
+                <span> |</span>
             </td>
             </tr>
         </Fragment>
@@ -155,9 +155,23 @@ const HomePage = ({data, location}) => {
                 <main>
                     <div class="container py-2">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
                                 <h5><em>These are the reported statistics for Coronavirus outbreak in the Caribbean.</em></h5>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="btn btn-primary mx-1 my-1" style={{backgroundColor: "#3b5998"}} target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com">
+                                    <i class="fab fa-facebook-square fa-lg"></i> <span>Share</span>
+                                </a>
+                                <a class="btn btn-success mx-1 my-1" style={{backgroundColor: "#25d366"}} target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com">
+                                    <i class="fab fa-whatsapp-square fa-lg"></i> <span>Share</span>
+                                </a>
+                                <a class="btn btn-primary mx-1 my-1" style={{backgroundColor: "#1da1f2"}} target="_blank" rel="noopener noreferrer" href="https://twitter.com/home?status=https://caribbeanvirustracker.com ">
+                                    <i class="fab fa-twitter-square fa-lg"></i> <span>Share</span>
+                                </a>
+                                <a class="btn btn-primary mx-1 my-1" style={{backgroundColor: "#0e76a8"}} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com&title=&summary=&source=">
+                                    <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -165,7 +179,7 @@ const HomePage = ({data, location}) => {
                         <div class="row">
                             <div class="col-md-12">
                             <h2 class="header">Caribbean Outbreak Statistics</h2>
-                            <div class="alert alert-info" role="alert">
+                            <div class="alert alert-info text-center" role="alert">
                                 <h5>Last Updated on <strong>{data.max_date.nodes[0].updatedate}</strong></h5>
                             </div>
                             <br></br>
@@ -175,7 +189,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-success">
-                                        <h1><strong>{totalCases()}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{totalCases()}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Total Cases</h5>
@@ -186,7 +200,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-warning">
-                                        <h1><strong>{totalNewCases()}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{totalNewCases()}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">New Cases</h5>
@@ -197,7 +211,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-danger">
-                                        <h1><strong>{totalDeaths()}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{totalDeaths()}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">Total Deaths</h5>
@@ -208,7 +222,7 @@ const HomePage = ({data, location}) => {
                             <div class="col-md-3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-dark">
-                                        <h1><strong>{totalNewDeaths()}</strong></h1>
+                                        <h1 style={{fontFamily: "Special Elite"}}>{totalNewDeaths()}</h1>
                                     </div>
                                     <div class="card-body text-center">
                                         <h5 class="card-title">New Deaths</h5>

@@ -45,8 +45,8 @@ const AboutPage = () => {
                                 <p>A person with a passion for cybersecurity, who has several years of
                                     security and software development experience to share with others.
                                 </p>
-                                <a href="https://tt.linkedin.com/in/obikag" style={{float: 'left', paddingLeft: '10px'}}><i class="fa fa-linkedin"></i></a>
-                                <a href="https://medium.com/@obikag" style={{float: 'left', paddingLeft: '10px'}}><i class="fa fa-medium"></i></a>
+                                <a href="https://tt.linkedin.com/in/obikag" style={{float: 'left', paddingLeft: '10px'}}><i class="fa fa-linkedin fa-2x"></i></a>
+                                <a href="https://medium.com/@obikag" style={{float: 'left', paddingLeft: '10px'}}><i class="fa fa-medium fa-2x"></i></a>
                             </div>
                         </div>
                     </div>
