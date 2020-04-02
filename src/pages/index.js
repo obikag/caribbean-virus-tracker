@@ -235,7 +235,7 @@ const HomePage = ({data, location}) => {
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">
-                                <p><em>When viewing on a mobile device, scroll right.</em></p>
+                                <p><em>* When viewing on a mobile device, scroll right.</em></p>
                             </div>
                         </div>
                         <div class="row">
