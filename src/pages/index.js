@@ -155,21 +155,21 @@ const HomePage = ({data, location}) => {
                 <main>
                     <div class="container py-2">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
                                 <h5><em>These are the reported statistics for Coronavirus outbreak in the Caribbean.</em></h5>
                             </div>
-                            <div class="col-md-3">
-                                <a class="btn btn-primary mx-1 my-1" style={{backgroundColor: "#3b5998"}} target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com">
+                            <div class="col-md-4">
+                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#3b5998", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com">
                                     <i class="fab fa-facebook-square fa-lg"></i> <span>Share</span>
                                 </a>
-                                <a class="btn btn-success mx-1 my-1" style={{backgroundColor: "#25d366"}} target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com">
+                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#25d366", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com">
                                     <i class="fab fa-whatsapp-square fa-lg"></i> <span>Share</span>
                                 </a>
-                                <a class="btn btn-primary mx-1 my-1" style={{backgroundColor: "#1da1f2"}} target="_blank" rel="noopener noreferrer" href="https://twitter.com/home?status=https://caribbeanvirustracker.com ">
+                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#1da1f2", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://twitter.com/home?status=https://caribbeanvirustracker.com ">
                                     <i class="fab fa-twitter-square fa-lg"></i> <span>Share</span>
                                 </a>
-                                <a class="btn btn-primary mx-1 my-1" style={{backgroundColor: "#0e76a8"}} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com&title=&summary=&source=">
+                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#0e76a8", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com&title=&summary=&source=">
                                     <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
                                 </a>
                             </div>
@@ -235,26 +235,33 @@ const HomePage = ({data, location}) => {
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">
+                                <p><em>When viewing on a mobile device, scroll right.</em></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="table-responsive-md pb-3">
                                     <table id="table" class="table table-bordered">
                                         <thead>
                                             <tr>
                                             <th scope="col">
-                                                <AnchorLink  to={`/?sort=location&descending=${!descending}#table`}>Location</AnchorLink >
+                                                <AnchorLink  to={`/?sort=location&descending=${!descending}#table`}>Location&nbsp;<i class="fas fa-sort"></i></AnchorLink >
                                             </th>
                                             <th scope="col">
-                                                <AnchorLink to={`/?sort=total_cases&descending=${!descending}#table`}>Total Cases</AnchorLink>
+                                                <AnchorLink to={`/?sort=total_cases&descending=${!descending}#table`}>Total Cases&nbsp;<i class="fas fa-sort"></i></AnchorLink>
                                             </th>
                                             <th scope="col">
-                                                <AnchorLink to={`/?sort=new_cases&descending=${!descending}#table`}>New Cases</AnchorLink>
+                                                <AnchorLink to={`/?sort=new_cases&descending=${!descending}#table`}>New Cases&nbsp;<i class="fas fa-sort"></i></AnchorLink>
                                             </th>
                                             <th scope="col">
-                                                <AnchorLink to={`/?sort=total_deaths&descending=${!descending}#table`}>Total Deaths</AnchorLink>
+                                                <AnchorLink to={`/?sort=total_deaths&descending=${!descending}#table`}>Total Deaths&nbsp;<i class="fas fa-sort"></i></AnchorLink>
                                             </th>
                                             <th scope="col">
-                                                <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>New Deaths</AnchorLink>
+                                                <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>New Deaths&nbsp;<i class="fas fa-sort"></i></AnchorLink>
                                             </th>
-                                            <th scope="col">Recovered</th>
+                                            <th scope="col">
+                                                <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>Recovered&nbsp;<i class="fas fa-sort"></i></AnchorLink>
+                                            </th>
                                             </tr>
                                         </thead>
                                         <tbody>

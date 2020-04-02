@@ -11,14 +11,15 @@ const SelfTestPage = () => {
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1 class="header">CORVID-19 Self Test</h1>
+                                <h1 class="header">COVID-19 Self Test</h1>
                             </div>
                         </div>
                     </div>
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-9">
-                                <div class="table-responsive-md">
+                                <div class="table-responsive-sm">
+                                    <form>
                                     <table class="table">
                                         <thead>
                                             <th><strong>Question</strong></th>
@@ -118,6 +119,7 @@ const SelfTestPage = () => {
                                             </tr>
                                         </tbody>
                                     </table>
+                                    </form>
                                 </div>
                             </div>
                         </div>
