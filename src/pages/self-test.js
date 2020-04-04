@@ -2,6 +2,39 @@ import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
+const AgreementModal = ({show}) => {
+    if(!show){
+        return null;
+    }
+    return(
+        <Fragment>
+            {/* Modals */}
+            <div class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">User Agreement</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>This tool does not provide medical advice. It is intended
+                            for informational puproses only. <strong>It is not substitute for professional
+                            medical advice, diagnosis or treatment.</strong> Never ignore professional
+                            medical advice in seeking treatment because of something you have read on this site
+                            or the Internet. If you think you may have a medical emergency immediately call 
+                            your doctor or the emergency hospital response phone line.
+                        </p>
+                        <p>By selecting "I agree" button below, you accept the above disclaimer.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/" class="btn btn-secondary">I do not agree</a>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">I agree</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </Fragment>
+    );
+}
 const SelfTestPage = ({q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12}) => {
 
     function handleSubmit(event) {
@@ -210,6 +243,7 @@ const SelfTestPage = ({q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12}) => {
                             </div>
                         </div>
                     </div>
+                    <AgreementModal/>
                 </main>
             <Footer />
         </Fragment>
