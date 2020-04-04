@@ -3,6 +3,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import { graphql } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
+//import Plot from 'react-plotly.js';
 
 const TableRow = ({node, lastupdated}) => {
 
@@ -53,7 +54,40 @@ const TableRow = ({node, lastupdated}) => {
 
 
 const HomePage = ({data, location}) => {
+    /*
+    function xLocationAxis(){
+        let update_date = data.max_date.nodes[0].comparestring;
+        let xValues = [];
+        data.all_data.nodes.forEach(node =>{
+            if(node.date === update_date) {
+                xValues.push(node.location);
+            }
+        });
+        return xValues;
+    }
 
+    function yTotalCasesAxis(){
+        let update_date = data.max_date.nodes[0].comparestring;
+        let yValues = [];
+        data.all_data.nodes.forEach(node =>{
+            if(node.date === update_date) {
+                yValues.push(Math.max(node.total_cases_1, node.total_cases_2));
+            }
+        });
+        return yValues;
+    }
+    
+    function yTotalDeathsAxis(){
+        let update_date = data.max_date.nodes[0].comparestring;
+        let yValues = [];
+        data.all_data.nodes.forEach(node =>{
+            if(node.date === update_date) {
+                yValues.push(Math.max(node.total_deaths_1, node.total_deaths_2));
+            }
+        });
+        return yValues;
+    }
+    */
     function totalCases() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
@@ -232,6 +266,19 @@ const HomePage = ({data, location}) => {
                             </div>
                         </div>
                     </div>
+                    {/*
+                    <div class="container py-2">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <Plot
+                                data={[{type: 'bar', x: xLocationAxis(), y: yTotalCasesAxis(), name: 'Total Cases'},
+                                        {type: 'line', x: xLocationAxis(), y: yTotalDeathsAxis(), name: 'Total Deaths'},]}
+                                layout={{width: 900, xaxis: {tickangle: 20, tickfont: {size: 10}}, title: 'Caribbean Coronavirus Plot'}}
+                                config={{displayModeBar: false}} />
+                            </div>
+                        </div>
+                    </div>
+                    */}
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">
