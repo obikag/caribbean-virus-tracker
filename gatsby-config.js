@@ -38,6 +38,8 @@ module.exports = {
           "location": "string",
           "latitude": "omit",
           "longitude": "omit",
+          "region": "omit",
+          "iso_code": "omit",
           "total_cases_1": "number",
           "total_cases_2": "number",
           "new_cases_1": "number",
