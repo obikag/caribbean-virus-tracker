@@ -17,7 +17,9 @@ const TableRow = ({node, lastupdated}) => {
         <Fragment>
             <tr>
             <td>
-                <div>{node.location}</div>
+            <div>
+                {node.location} {node.region ? '('+node.region+')' : ''}
+            </div>
                 <div><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a></div>
                 {node.source_url_2 && 
                     <div><a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a></div>
@@ -60,7 +62,7 @@ const HomePage = ({data, location}) => {
         let xValues = [];
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                xValues.push(node.location);
+                xValues.push(node.iso_code);
             }
         });
         return xValues;
@@ -267,16 +269,12 @@ const HomePage = ({data, location}) => {
                         </div>
                     </div>
                     {/*
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                    <div class="container">
                             <Plot
                                 data={[{type: 'bar', x: xLocationAxis(), y: yTotalCasesAxis(), name: 'Total Cases'},
-                                        {type: 'line', x: xLocationAxis(), y: yTotalDeathsAxis(), name: 'Total Deaths'},]}
-                                layout={{width: 900, xaxis: {tickangle: 20, tickfont: {size: 10}}, title: 'Caribbean Coronavirus Plot'}}
-                                config={{displayModeBar: false}} />
-                            </div>
-                        </div>
+                                        {type: 'bar', x: xLocationAxis(), y: yTotalDeathsAxis(), name: 'Total Deaths'},]}
+                                layout={{width: 900, xaxis: {tickangle: 20}, title: 'Caribbean Coronavirus Plot'}}
+                                config={{displayModeBar: false, responsive: true}} />
                     </div>
                     */}
                     <div class="container py-2">
@@ -333,6 +331,8 @@ query HomePageQuery {
     nodes {
       location
       date(formatString: "DD MMM YYYY")
+      region
+      iso_code
       total_cases_1
       total_cases_2
       new_cases_1
