@@ -36,8 +36,8 @@ module.exports = {
               return dateObject;
           },
           "location": "string",
-          "latitude": "omit",
-          "longitude": "omit",
+          "latitude": "number",
+          "longitude": "number",
           "region": "string",
           "iso_code": "string",
           "total_cases_1": "number",
@@ -68,11 +68,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-60061038-3',
         head: true,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-react-leaflet',
+      options: {
+        linkStyles: true
+      }
     },
   ]
 }

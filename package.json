@@ -19,14 +19,17 @@
     "gatsby-plugin-google-analytics": "^2.2.2",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-react-helmet": "^3.1.24",
+    "gatsby-plugin-react-leaflet": "^2.0.12",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sitemap": "^2.3.1",
     "gatsby-source-filesystem": "^2.1.57",
     "gatsby-transformer-csv": "^2.1.28",
+    "leaflet": "^1.6.0",
     "plotly.js": "^1.53.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-leaflet": "^2.6.3",
     "react-plotly.js": "^2.4.0"
   },
   "devDependencies": {
