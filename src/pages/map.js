@@ -4,6 +4,7 @@ import Footer from '../components/footer';
 import '../components/map.css';
 import { graphql } from 'gatsby';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import HeatmapLayer from 'react-leaflet-heatmap-layer';
 
 const MapPage = ({data}) => {
     /*
@@ -11,6 +12,22 @@ const MapPage = ({data}) => {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     }
     */
+    function addressPoints(){
+        let update_date = data.latest_data.nodes[0].comparestring;
+        let arrValues = [];
+        data.all_data.nodes.forEach(node =>{
+            if(node.date === update_date) {
+                var point = [];
+                point.push(node.latitude);
+                point.push(node.longitude);
+                point.push(Math.max(node.total_cases_1, node.total_cases_2));
+                arrValues.push(point);
+            }
+        });
+        console.log(arrValues);
+        return arrValues;
+    }
+
     const startPosition = [15.05, -70.09];
 
     const startZoom = 5;
@@ -34,6 +51,14 @@ const MapPage = ({data}) => {
                             <div class="row">
                                 <div class="col-md-12">
                                 <Map center={startPosition} zoom={startZoom}>
+                                    <HeatmapLayer
+                                    fitBoundsOnLoad
+                                    fitBoundsOnUpdate
+                                    points={addressPoints()}
+                                    latitudeExtractor={m => m[0]}
+                                    longitudeExtractor={m => m[1]}
+                                    intensityExtractor={m => m[2]} 
+                                    />
                                     <TileLayer
                                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -42,10 +67,8 @@ const MapPage = ({data}) => {
                                         node.date === data.latest_data.nodes[0].comparestring ?
                                             <Marker position={[node.latitude, node.longitude]}>
                                                 <Popup><strong><em>{node.location}</em></strong>
-                                                <br></br><em>Total Cases:</em> {Math.max(node.total_cases_1,node.total_cases_2)}
-                                                <br></br><em>New Cases:</em> {Math.max(node.new_cases_1,node.new_cases_2)}
-                                                <br></br><em>Total Deaths:</em> {Math.max(node.total_deaths_1,node.total_deaths_2)}
-                                                <br></br><em>New Deaths:</em> {Math.max(node.new_deaths_1,node.new_deaths_2)}
+                                                <br></br><em>Confirmed:</em> {Math.max(node.total_cases_1,node.total_cases_2)}
+                                                <br></br><em>Deaths:</em> {Math.max(node.total_deaths_1,node.total_deaths_2)}
                                                 <br></br><em>Recovered:</em> {node.recovered}
                                                 </Popup>
                                             </Marker>
