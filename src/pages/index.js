@@ -150,141 +150,144 @@ const HomePage = ({data, location}) => {
         data.all_data.nodes.sort(getSortFunction(field, descending));
         
     }
-
-    return (
-        <Fragment>
-            <Header />
-                <main>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
-                                <h5><em>These are the reported statistics for Coronavirus outbreak in the Caribbean.</em></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#3b5998", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com">
-                                    <i class="fab fa-facebook-square fa-lg"></i> <span>Share</span>
-                                </a>
-                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#25d366", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com">
-                                    <i class="fab fa-whatsapp-square fa-lg"></i> <span>Share</span>
-                                </a>
-                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#1da1f2", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://twitter.com/home?status=https://caribbeanvirustracker.com ">
-                                    <i class="fab fa-twitter-square fa-lg"></i> <span>Share</span>
-                                </a>
-                                <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#0e76a8", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com&title=&summary=&source=">
-                                    <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
-                            <h2 class="header">Caribbean Outbreak Statistics</h2>
-                            <div class="alert alert-info text-center" role="alert">
-                                <h5>Last Updated on <strong>{data.max_date.nodes[0].updatedate}</strong></h5>
-                            </div>
-                            <br></br>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <div class="card-header text-center text-white bg-success">
-                                        <h1 style={{fontFamily: "Special Elite"}}>{totalCases()}</h1>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Total Cases</h5>
-                                        <p class="card-text" style={{fontSize: "10px"}}>Total confirmed Coronavirus infections</p>
-                                    </div>
+    
+    if (typeof window !== 'undefined') {
+        return (
+            <Fragment>
+                <Header />
+                    <main>
+                        <div class="container py-2">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
+                                    <h5><em>These are the reported statistics for Coronavirus outbreak in the Caribbean.</em></h5>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <div class="card-header text-center text-white bg-warning">
-                                        <h1 style={{fontFamily: "Special Elite"}}>{totalNewCases()}</h1>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">New Cases</h5>
-                                        <p class="card-text" style={{fontSize: "10px"}}>Newly reported Coronavirus infections</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <div class="card-header text-center text-white bg-danger">
-                                        <h1 style={{fontFamily: "Special Elite"}}>{totalDeaths()}</h1>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Total Deaths</h5>
-                                        <p class="card-text" style={{fontSize: "10px"}}>Total confirmed deaths linked to Coronavirus</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <div class="card-header text-center text-white bg-dark">
-                                        <h1 style={{fontFamily: "Special Elite"}}>{totalNewDeaths()}</h1>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">New Deaths</h5>
-                                        <p class="card-text" style={{fontSize: "10px"}}>Newly reported deaths linked to Coronavirus</p>
-                                    </div>
+                                <div class="col-md-4">
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#3b5998", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com">
+                                        <i class="fab fa-facebook-square fa-lg"></i> <span>Share</span>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#25d366", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com">
+                                        <i class="fab fa-whatsapp-square fa-lg"></i> <span>Share</span>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#1da1f2", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://twitter.com/home?status=https://caribbeanvirustracker.com ">
+                                        <i class="fab fa-twitter-square fa-lg"></i> <span>Share</span>
+                                    </a>
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#0e76a8", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com&title=&summary=&source=">
+                                        <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {/*
-                    <div class="container">
-                        <p>Map container here</p>
-                    </div>
-                    */}
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p><em>* When viewing on a mobile device, scroll right.</em></p>
+                        <div class="container py-2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                <h2 class="header">Caribbean Outbreak Statistics</h2>
+                                <div class="alert alert-info text-center" role="alert">
+                                    <h5>Last Updated on <strong>{data.max_date.nodes[0].updatedate}</strong></h5>
+                                </div>
+                                <br></br>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="table-responsive-md pb-3">
-                                    <table id="table" class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                            <th scope="col">
-                                                <AnchorLink  to={`/?sort=location&descending=${!descending}#table`}>Location&nbsp;<i class="fas fa-sort"></i></AnchorLink >
-                                            </th>
-                                            <th scope="col">
-                                                <AnchorLink to={`/?sort=total_cases&descending=${!descending}#table`}>Total Cases&nbsp;<i class="fas fa-sort"></i></AnchorLink>
-                                            </th>
-                                            <th scope="col">
-                                                <AnchorLink to={`/?sort=new_cases&descending=${!descending}#table`}>New Cases&nbsp;<i class="fas fa-sort"></i></AnchorLink>
-                                            </th>
-                                            <th scope="col">
-                                                <AnchorLink to={`/?sort=total_deaths&descending=${!descending}#table`}>Total Deaths&nbsp;<i class="fas fa-sort"></i></AnchorLink>
-                                            </th>
-                                            <th scope="col">
-                                                <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>New Deaths&nbsp;<i class="fas fa-sort"></i></AnchorLink>
-                                            </th>
-                                            <th scope="col">
-                                                <AnchorLink to={`/?sort=recovered&descending=${!descending}#table`}>Recovered&nbsp;<i class="fas fa-sort"></i></AnchorLink>
-                                            </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        {data.all_data.nodes.map((node) => (
-                                            <TableRow node={node} lastupdated={node.date === data.max_date.nodes[0].comparestring}></TableRow>
-                                        ))}
-                                        </tbody>
-                                    </table>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <div class="card-header text-center text-white bg-success">
+                                            <h1 style={{fontFamily: "Special Elite"}}>{totalCases()}</h1>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Total Cases</h5>
+                                            <p class="card-text" style={{fontSize: "10px"}}>Total confirmed Coronavirus infections</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <div class="card-header text-center text-white bg-warning">
+                                            <h1 style={{fontFamily: "Special Elite"}}>{totalNewCases()}</h1>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">New Cases</h5>
+                                            <p class="card-text" style={{fontSize: "10px"}}>Newly reported Coronavirus infections</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <div class="card-header text-center text-white bg-danger">
+                                            <h1 style={{fontFamily: "Special Elite"}}>{totalDeaths()}</h1>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Total Deaths</h5>
+                                            <p class="card-text" style={{fontSize: "10px"}}>Total confirmed deaths linked to Coronavirus</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card mb-3">
+                                        <div class="card-header text-center text-white bg-dark">
+                                            <h1 style={{fontFamily: "Special Elite"}}>{totalNewDeaths()}</h1>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">New Deaths</h5>
+                                            <p class="card-text" style={{fontSize: "10px"}}>Newly reported deaths linked to Coronavirus</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </main>
-            <Footer />
-        </Fragment>
-    );
+                        {/*
+                        <div class="container">
+                            <p>Map container here</p>
+                        </div>
+                        */}
+                        <div class="container py-2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><em>* When viewing on a mobile device, scroll right.</em></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive-md pb-3">
+                                        <table id="table" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                <th scope="col">
+                                                    <AnchorLink  to={`/?sort=location&descending=${!descending}#table`}>Location&nbsp;<i class="fas fa-sort"></i></AnchorLink >
+                                                </th>
+                                                <th scope="col">
+                                                    <AnchorLink to={`/?sort=total_cases&descending=${!descending}#table`}>Total Cases&nbsp;<i class="fas fa-sort"></i></AnchorLink>
+                                                </th>
+                                                <th scope="col">
+                                                    <AnchorLink to={`/?sort=new_cases&descending=${!descending}#table`}>New Cases&nbsp;<i class="fas fa-sort"></i></AnchorLink>
+                                                </th>
+                                                <th scope="col">
+                                                    <AnchorLink to={`/?sort=total_deaths&descending=${!descending}#table`}>Total Deaths&nbsp;<i class="fas fa-sort"></i></AnchorLink>
+                                                </th>
+                                                <th scope="col">
+                                                    <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>New Deaths&nbsp;<i class="fas fa-sort"></i></AnchorLink>
+                                                </th>
+                                                <th scope="col">
+                                                    <AnchorLink to={`/?sort=recovered&descending=${!descending}#table`}>Recovered&nbsp;<i class="fas fa-sort"></i></AnchorLink>
+                                                </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {data.all_data.nodes.map((node) => (
+                                                <TableRow node={node} lastupdated={node.date === data.max_date.nodes[0].comparestring}></TableRow>
+                                            ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                <Footer />
+            </Fragment>
+        );
+    }
+    return null;
 }
 
 export const query = graphql`
