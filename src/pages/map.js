@@ -3,7 +3,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import '../components/map.css';
 import { graphql } from 'gatsby';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 
 const MapPage = ({data}) => {
@@ -67,13 +67,13 @@ const MapPage = ({data}) => {
                                     />
                                     {data.all_data.nodes.map((node) => (
                                         node.date === data.latest_data.nodes[0].comparestring ?
-                                            <Marker position={[node.latitude, node.longitude]}>
+                                            <CircleMarker center={[node.latitude, node.longitude]} color="black" radius={3}>
                                                 <Popup><strong><em>{node.location}</em></strong>
                                                 <br></br><em>Confirmed:</em> {Math.max(node.total_cases_1,node.total_cases_2)}
                                                 <br></br><em>Deaths:</em> {Math.max(node.total_deaths_1,node.total_deaths_2)}
                                                 <br></br><em>Recovered:</em> {node.recovered}
                                                 </Popup>
-                                            </Marker>
+                                            </CircleMarker>
                                         : ''
                                     ))}
                                 </Map>
