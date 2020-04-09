@@ -50,7 +50,7 @@ const FaqPage = () => {
                                 These symptoms are usually mild and begin gradually. Some people become infected but don’t develop 
                                 any symptoms and don't feel unwell. Most people <em>(about 80%)</em> recover from the disease without needing 
                                 special treatment. Around 1 out of every 6 people who gets COVID-19 becomes seriously ill and 
-                                develops difficulty breathing. Ohter at risk persons who are more likely to develop serious illines 
+                                develops difficulty breathing. Other at risk persons who are more likely to develop serious illines 
                                 include:
                                 <ul>
                                     <li>Older people</li>

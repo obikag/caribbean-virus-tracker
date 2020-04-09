@@ -2,7 +2,7 @@
   "name": "caribbean-virus-tracker",
   "private": true,
   "description": "A simplified web-based tracker for the Coronavirus outbreak in the Caribbean",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -30,7 +30,6 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-leaflet": "^2.6.3",
-    "react-leaflet-heatmap-layer": "^2.0.0",
     "react-plotly.js": "^2.4.0"
   },
   "devDependencies": {

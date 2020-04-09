@@ -3,7 +3,6 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import { graphql } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
-//import Plot from 'react-plotly.js';
 
 const TableRow = ({node, lastupdated}) => {
 
@@ -56,40 +55,7 @@ const TableRow = ({node, lastupdated}) => {
 
 
 const HomePage = ({data, location}) => {
-    /*
-    function xLocationAxis(){
-        let update_date = data.max_date.nodes[0].comparestring;
-        let xValues = [];
-        data.all_data.nodes.forEach(node =>{
-            if(node.date === update_date) {
-                xValues.push(node.iso_code);
-            }
-        });
-        return xValues;
-    }
-
-    function yTotalCasesAxis(){
-        let update_date = data.max_date.nodes[0].comparestring;
-        let yValues = [];
-        data.all_data.nodes.forEach(node =>{
-            if(node.date === update_date) {
-                yValues.push(Math.max(node.total_cases_1, node.total_cases_2));
-            }
-        });
-        return yValues;
-    }
     
-    function yTotalDeathsAxis(){
-        let update_date = data.max_date.nodes[0].comparestring;
-        let yValues = [];
-        data.all_data.nodes.forEach(node =>{
-            if(node.date === update_date) {
-                yValues.push(Math.max(node.total_deaths_1, node.total_deaths_2));
-            }
-        });
-        return yValues;
-    }
-    */
     function totalCases() {
         let update_date = data.max_date.nodes[0].comparestring;
         let count = 0;
@@ -270,11 +236,7 @@ const HomePage = ({data, location}) => {
                     </div>
                     {/*
                     <div class="container">
-                            <Plot
-                                data={[{type: 'bar', x: xLocationAxis(), y: yTotalCasesAxis(), name: 'Total Cases'},
-                                        {type: 'bar', x: xLocationAxis(), y: yTotalDeathsAxis(), name: 'Total Deaths'},]}
-                                layout={{width: 900, xaxis: {tickangle: 20}, title: 'Caribbean Coronavirus Plot'}}
-                                config={{displayModeBar: false, responsive: true}} />
+                        <p>Map container here</p>
                     </div>
                     */}
                     <div class="container py-2">
