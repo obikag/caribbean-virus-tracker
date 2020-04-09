@@ -305,7 +305,7 @@ const HomePage = ({data, location}) => {
                                                 <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>New Deaths&nbsp;<i class="fas fa-sort"></i></AnchorLink>
                                             </th>
                                             <th scope="col">
-                                                <AnchorLink to={`/?sort=new_deaths&descending=${!descending}#table`}>Recovered&nbsp;<i class="fas fa-sort"></i></AnchorLink>
+                                                <AnchorLink to={`/?sort=recovered&descending=${!descending}#table`}>Recovered&nbsp;<i class="fas fa-sort"></i></AnchorLink>
                                             </th>
                                             </tr>
                                         </thead>

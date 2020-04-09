@@ -30,7 +30,7 @@ const MapPage = ({data}) => {
 
     const startPosition = [15.05, -70.09];
 
-    const startZoom = 5;
+    const startZoom = 10;
     if (typeof window !== 'undefined') {
         return (
             <Fragment>
@@ -58,6 +58,8 @@ const MapPage = ({data}) => {
                                     latitudeExtractor={m => m[0]}
                                     longitudeExtractor={m => m[1]}
                                     intensityExtractor={m => m[2]} 
+                                    max={3.0}
+                                    radius={20} 
                                     />
                                     <TileLayer
                                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
