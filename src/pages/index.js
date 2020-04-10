@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import '../components/map.css';
 import { graphql } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
+import { Map, TileLayer, CircleMarker, Popup } from 'react-leaflet';
+
 
 const TableRow = ({node, lastupdated}) => {
 
@@ -64,7 +67,7 @@ const HomePage = ({data, location}) => {
                 count += Math.max(node.total_cases_1, node.total_cases_2);
             }
         });
-        return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        return numFormatter(count);
     }
 
     function totalNewCases() {
@@ -75,7 +78,7 @@ const HomePage = ({data, location}) => {
                 count +=  Math.max(node.new_cases_1, node.new_cases_2);
             }
         });
-        return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        return numFormatter(count);
     }
     
     function totalDeaths() {
@@ -86,7 +89,7 @@ const HomePage = ({data, location}) => {
                 count += Math.max(node.total_deaths_1, node.total_deaths_2);
             }
         });
-        return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        return numFormatter(count);
     }
 
     function totalNewDeaths() {
@@ -151,6 +154,39 @@ const HomePage = ({data, location}) => {
         
     }
     
+    function numFormatter(num){
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    }
+
+    function markerColor(num) {
+        var percentage = num/totalnumCases;
+        if (percentage <= 0.1){
+            return 'green';
+        } else if (percentage > 0.1 && percentage <= 0.4) {
+            return 'orange';
+        } else if (percentage > 0.4) {
+            return 'red';
+        }
+        return 'grey';
+    }
+    
+    function totalCasesCount() {
+        let update_date = data.max_date.nodes[0].comparestring;
+        let count = 0;
+        data.all_data.nodes.forEach(node => {
+            if(node.date === update_date) {
+                count += Math.max(node.total_cases_1, node.total_cases_2);
+            }
+        });
+        return count
+    };
+
+    const startPosition = [19.05, -70.09];
+
+    const startZoom = 4;
+
+    const totalnumCases = totalCasesCount()
+
     if (typeof window !== 'undefined') {
         return (
             <Fragment>
@@ -235,11 +271,30 @@ const HomePage = ({data, location}) => {
                                 </div>
                             </div>
                         </div>
-                        {/*
-                        <div class="container">
-                            <p>Map container here</p>
+                        <div class="container py-2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                <h2 class="header">Interactive Map</h2>
+                                <Map center={startPosition} zoom={startZoom}>
+                                    <TileLayer
+                                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                    />
+                                    {data.all_data.nodes.map((node) => (
+                                        node.date === data.max_date.nodes[0].comparestring ?
+                                            <CircleMarker center={[node.latitude, node.longitude]} color={markerColor(Math.max(node.total_cases_1,node.total_cases_2))} radius={5}>
+                                                <Popup><strong><em>{node.location}</em></strong>
+                                                <br></br><em>Confirmed:</em> {numFormatter(Math.max(node.total_cases_1,node.total_cases_2))}
+                                                <br></br><em>Deaths:</em> {numFormatter(Math.max(node.total_deaths_1,node.total_deaths_2))}
+                                                <br></br><em>Recovered:</em> {numFormatter(node.recovered)}
+                                                </Popup>
+                                            </CircleMarker>
+                                        : ''
+                                    ))}
+                                </Map>
+                                </div>
+                            </div>
                         </div>
-                        */}
                         <div class="container py-2">
                             <div class="row">
                                 <div class="col-md-12">
@@ -296,6 +351,8 @@ query HomePageQuery {
     nodes {
       location
       date(formatString: "DD MMM YYYY")
+      latitude
+      longitude
       region
       iso_code
       total_cases_1
