@@ -2,16 +2,40 @@ import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import { graphql } from 'gatsby';
-//import Plot from 'react-plotly.js';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 
 const ChartsPage = ({data}) => {
-    /*  
+    const options = {
+        chart: {
+            type: "bar",
+            height: 600,
+        },
+        title: {
+            text: 'Coronavirus Cases by Country'
+          },
+          xAxis : {
+            categories: xLocationAxis(),
+            labels: {
+                step: 1
+            }
+          },
+          series: [{
+            name: "Total Cases",
+            data: yTotalCasesAxis()
+          },
+          {
+            name: "Total Deaths",
+            data: yTotalDeathsAxis()
+          }]
+    }
+    
     function xLocationAxis(){
         let update_date = data.latest_data.nodes[0].comparestring;
         let xValues = [];
         data.all_data.nodes.forEach(node =>{
             if(node.date === update_date) {
-                xValues.push(node.iso_code);
+                xValues.push(node.location);
             }
         });
         return xValues;
@@ -27,7 +51,7 @@ const ChartsPage = ({data}) => {
         });
         return yValues;
     }
-    
+
     function yTotalDeathsAxis(){
         let update_date = data.latest_data.nodes[0].comparestring;
         let yValues = [];
@@ -38,11 +62,7 @@ const ChartsPage = ({data}) => {
         });
         return yValues;
     }
-    
-    function numFormatter(num){
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-    }
-    */
+
    return (
     <Fragment>
         <Header />
@@ -61,14 +81,10 @@ const ChartsPage = ({data}) => {
                 <div class="container py-2">
                     <div class="row">
                         <div class="col-md-12">
-                            {/*
-                            <Plot
-                                data={[{type: 'bar', x: xLocationAxis(), y: yTotalCasesAxis(), name: 'Total Cases'},
-                                        {type: 'bar', x: xLocationAxis(), y: yTotalDeathsAxis(), name: 'Total Deaths'},]}
-                                layout={{minWidth: 400, width: 980, xaxis: {tickangle: 20}, title: 'Caribbean Coronavirus Plot'}}
-                                config={{displayModeBar: false, responsive: true}} 
+                            <HighchartsReact
+                                highcharts={Highcharts}
+                                options={options}
                             />
-                            */}
                         </div>
                     </div>
                 </div>
