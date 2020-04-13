@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import '../components/global.css';
 
 const Error404Page = () => {
     return(
         <Fragment>
-            <Header />
+            <Header 
+                title="Page not Found"
+                description="404 Error"
+            />
             <main>
                 <div class="container py-2">
                     <div class="row">

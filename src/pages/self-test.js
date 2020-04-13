@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import '../components/global.css';
 
 const AgreementModal = ({show}) => {
     if(!show){
@@ -50,7 +51,7 @@ const SelfTestPage = ({q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12}) => {
     return(
         <Fragment>
             <Header />
-                <main style={{ minHeight: '600px' }}>
+                <main>
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">

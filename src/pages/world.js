@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import '../components/global.css';
 import { graphql } from 'gatsby';
 
 
@@ -12,7 +13,11 @@ const WorldPage = ({data}) => {
 
     return (
         <Fragment>
-            <Header />
+            <Header 
+                title="World Statistics"
+                description="The latest reported World statistics for the COVID-19 outbreak."
+                url="https://caribbeanvirustracker.com/world/"
+            />
                 <main>
                     <div class="container py-2">
                         <div class="row">

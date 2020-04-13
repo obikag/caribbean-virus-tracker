@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import '../components/map.css';
+import '../components/global.css';
 import { graphql } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { Map, TileLayer, CircleMarker, Popup } from 'react-leaflet';
@@ -36,24 +37,7 @@ const TableRow = ({node, lastupdated}) => {
         </Fragment>       
         );  
     }
-    return (
-        <Fragment>
-            <tr>
-            <td colspan="6" style={{display: "none"}}>
-                <span class="badge badge-pill badge-info">{node.date} </span>
-                <span><a href={node.source_url_1} class="badge badge-primary" target="_blank" rel="noopener noreferrer">{node.source_name_1}</a> </span>
-                <span><a href={node.source_url_2} class="badge badge-secondary" target="_blank" rel="noopener noreferrer">{node.source_name_2}</a> </span>
-                <span> | </span>
-                <span class="badge badge-pill badge-success">Total Cases: {node.total_cases}</span>
-                <span class="badge badge-pill badge-warning">New Cases: {node.new_cases}</span>
-                <span class="badge badge-pill badge-danger">Total Deaths: {node.total_deaths}</span>
-                <span class="badge badge-pill badge-dark">New Deaths: {node.new_deaths}</span>
-                <span class="badge badge-pill badge-primary">Recovered: {node.recovered}</span>
-                <span> |</span>
-            </td>
-            </tr>
-        </Fragment>
-    );
+    return null;
 }
 
 
@@ -108,7 +92,6 @@ const HomePage = ({data, location}) => {
         const match = RegExp('[?&]' + param + '=([^&]*)').exec(location.search);
         return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
-
 
     /**
      *  Get the "sort" query from the url, which corresponds to the field for each node
@@ -190,7 +173,7 @@ const HomePage = ({data, location}) => {
     if (typeof window !== 'undefined') {
         return (
             <Fragment>
-                <Header />
+                <Header title="Home"/>
                     <main>
                         <div class="container py-2">
                             <div class="row">
@@ -227,12 +210,12 @@ const HomePage = ({data, location}) => {
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="card mb-3">
-                                        <div class="card-header text-center text-white bg-success">
+                                        <div class="card-header text-center text-white bg-primary">
                                             <h1 style={{fontFamily: "Special Elite"}}>{totalCases()}</h1>
                                         </div>
                                         <div class="card-body text-center">
                                             <h5 class="card-title">Total Cases</h5>
-                                            <p class="card-text" style={{fontSize: "10px"}}>Total confirmed Coronavirus infections</p>
+                                            <p class="card-text" style={{fontSize: "9px"}}>Total confirmed Coronavirus infections</p>
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +226,7 @@ const HomePage = ({data, location}) => {
                                         </div>
                                         <div class="card-body text-center">
                                             <h5 class="card-title">New Cases</h5>
-                                            <p class="card-text" style={{fontSize: "10px"}}>Newly reported Coronavirus infections</p>
+                                            <p class="card-text" style={{fontSize: "9px"}}>Newly reported Coronavirus infections</p>
                                         </div>
                                     </div>
                                 </div>
@@ -254,18 +237,18 @@ const HomePage = ({data, location}) => {
                                         </div>
                                         <div class="card-body text-center">
                                             <h5 class="card-title">Total Deaths</h5>
-                                            <p class="card-text" style={{fontSize: "10px"}}>Total confirmed deaths linked to Coronavirus</p>
+                                            <p class="card-text" style={{fontSize: "9px"}}>Total confirmed deaths linked to Coronavirus</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card mb-3">
-                                        <div class="card-header text-center text-white bg-dark">
+                                        <div class="card-header text-center text-white bg-secondary">
                                             <h1 style={{fontFamily: "Special Elite"}}>{totalNewDeaths()}</h1>
                                         </div>
                                         <div class="card-body text-center">
                                             <h5 class="card-title">New Deaths</h5>
-                                            <p class="card-text" style={{fontSize: "10px"}}>Newly reported deaths linked to Coronavirus</p>
+                                            <p class="card-text" style={{fontSize: "9px"}}>Newly reported deaths linked to Coronavirus</p>
                                         </div>
                                     </div>
                                 </div>
@@ -275,6 +258,13 @@ const HomePage = ({data, location}) => {
                             <div class="row">
                                 <div class="col-md-12">
                                 <h2 class="header">Interactive Map</h2>
+                                <div class="row text-center border">
+                                    <div class="col-md-3 py-2"><strong>Legend:</strong></div>
+                                    <div class="col-md-3 py-1"><div id="legend-marker-red"></div><div class="legend-text">&gt;40% of Total Cases in Caribbean</div></div>
+                                    <div class="col-md-3 py-1"><div id="legend-marker-orange"></div><div class="legend-text">&gt;10% and &le;40% of Total Cases in Caribbean</div></div>
+                                    <div class="col-md-3 py-1"><div id="legend-marker-green"></div><div class="legend-text">&le;10% of Total Cases in Caribbean</div></div>
+                                </div>
+                                <br></br>
                                 <Map center={startPosition} zoom={startZoom}>
                                     <TileLayer
                                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

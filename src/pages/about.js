@@ -1,12 +1,17 @@
 import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import '../components/global.css';
 
 const AboutPage = () => {
     return (
         <Fragment>
-            <Header />
-                <main style={{minHeight: '600px'}}>
+            <Header 
+                title="About this Tracker" 
+                description="This tracker was created for the purpose of providing the Caribbean community with an overview of the ongoing COVID-19 pandemic within the Caribbean."
+                url="https://caribbeanvirustracker.com/about/" 
+            />
+                <main>
                     <div class="container py-2">
                         <div class="row">
                             <div class="col-md-12">
@@ -18,7 +23,7 @@ const AboutPage = () => {
                         <div class="row">
                             <div class="col-md-12">
                                 <p>This tracker was created for the purpose of providing the Caribbean community with an overview of 
-                                    the ongoing Coronavirus pandemic within the Caribbean.
+                                    the ongoing COVID-19 pandemic within the Caribbean.
                                 </p>
                                 <p>The site is progressively being updated and will have more features in the coming weeks.
                                 If you wish to contribute to the site, please visit the <a href="https://github.com/obikag/caribbean-virus-tracker">GitHub page</a></p>
