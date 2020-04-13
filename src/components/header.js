@@ -40,7 +40,7 @@ const Header = ({title="", description="", url=""}) => {
                      <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="menu-links">
-                     <ul class="navbar-nav ml-auto">
+                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
                            <Link to="/" className="nav-link" activeClassName="active">
                               <i class="fa fa-fw fa-home" aria-hidden="true"></i>&nbsp;Home<span class="sr-only"></span>
