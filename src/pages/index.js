@@ -272,7 +272,7 @@ const HomePage = ({data, location}) => {
                                     />
                                     {data.all_data.nodes.map((node) => (
                                         node.date === data.max_date.nodes[0].comparestring ?
-                                            <CircleMarker center={[node.latitude, node.longitude]} color={markerColor(Math.max(node.total_cases_1,node.total_cases_2))} radius={7}>
+                                            <CircleMarker center={[node.latitude, node.longitude]} color={markerColor(Math.max(node.total_cases_1,node.total_cases_2))} radius={6}>
                                                 <Popup><strong><em>{node.location}</em></strong>
                                                 <br></br><em>Confirmed:</em> {numFormatter(Math.max(node.total_cases_1,node.total_cases_2))}
                                                 <br></br><em>Deaths:</em> {numFormatter(Math.max(node.total_deaths_1,node.total_deaths_2))}
