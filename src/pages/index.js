@@ -260,9 +260,9 @@ const HomePage = ({data, location}) => {
                                 <h2 class="header">Interactive Map</h2>
                                 <div class="row text-center border">
                                     <div class="col-md-3 py-2"><strong>Legend:</strong></div>
-                                    <div class="col-md-3 py-1"><div id="legend-marker-red"></div><div class="legend-text">&gt;40% of Total Cases in Caribbean</div></div>
-                                    <div class="col-md-3 py-1"><div id="legend-marker-orange"></div><div class="legend-text">&gt;10% and &le;40% of Total Cases in Caribbean</div></div>
                                     <div class="col-md-3 py-1"><div id="legend-marker-green"></div><div class="legend-text">&le;10% of Total Cases in Caribbean</div></div>
+                                    <div class="col-md-3 py-1"><div id="legend-marker-orange"></div><div class="legend-text">&gt;10% and &le;40% of Total Cases in Caribbean</div></div>
+                                    <div class="col-md-3 py-1"><div id="legend-marker-red"></div><div class="legend-text">&gt;40% of Total Cases in Caribbean</div></div>
                                 </div>
                                 <br></br>
                                 <Map center={startPosition} zoom={startZoom}>
