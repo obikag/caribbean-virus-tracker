@@ -111,7 +111,7 @@ exports.onPreInit = () => {
         var territory_df = df.filter(row => row.get('region') != '');
         //Set Dates Array
         var today = moment(new Date()).utcOffset('-0400');
-        var dateRange = datesArray(new Date('2020-01-01'), new Date(today.format('YYYY-MM-DD')));
+        var dateRange = datesArray(new Date('2020-03-01'), new Date(today.format('YYYY-MM-DD')));
         var country_tc_arr = [],
             country_td_arr = [],
             territory_tc_arr = [],
