@@ -8,7 +8,7 @@ import HighchartsReact from 'highcharts-react-official';
 
 const ChartsPage = ({data}) => {
     const caribbean_options = {
-        chart: {type: "bar",height: 600},
+        chart: {type: "bar", height: 600},
         title: {text: 'COVID-19 Cases throughout the Caribbean'},
         xAxis: {categories: xLocationAxis(), labels: {step: 1}},
         series: [{name: "Total Cases", data: yTotalCasesAxis()},
@@ -18,7 +18,7 @@ const ChartsPage = ({data}) => {
         chart: {type: "line"},
         title: {text: 'COVID-19 Cases by Caribbean Country'},
         xAxis: {categories: xDateAxis()},
-        series: [{name: "Antigua and Barbuda", data: yCountryCasesAxis("Antigua and Barbuda")},
+        series: [{name: "Antigua & Barbuda", data: yCountryCasesAxis("Antigua and Barbuda")},
                  {name: "Bahamas", data: yCountryCasesAxis("Bahamas")},
                  {name: "Barbados", data: yCountryCasesAxis("Barbados")},
                  {name: "Belize", data: yCountryCasesAxis("Belize")},
@@ -30,19 +30,24 @@ const ChartsPage = ({data}) => {
                  {name: "Haiti", data: yCountryCasesAxis("Haiti")},
                  {name: "Jamaica", data: yCountryCasesAxis("Jamaica")},
                  {name: "Martinique", data: yCountryCasesAxis("Martinique")},
-                 {name: "Saint Kitts and Nevis", data: yCountryCasesAxis("Saint Kitts and Nevis")},
-                 {name: "Saint Lucia", data: yCountryCasesAxis("Saint Lucia")},
-                 {name: "Saint Vincent and Grenadines", data: yCountryCasesAxis("Saint Vincent and Grenadines")},
+                 {name: "St Kitts & Nevis", data: yCountryCasesAxis("Saint Kitts and Nevis")},
+                 {name: "St Lucia", data: yCountryCasesAxis("Saint Lucia")},
+                 {name: "St Vincent & Grenadines", data: yCountryCasesAxis("Saint Vincent and Grenadines")},
                  {name: "Suriname", data: yCountryCasesAxis("Suriname")},
-                 {name: "Trinidad and Tobago", data: yCountryCasesAxis("Trinidad and Tobago")},
-                ]
+                 {name: "Trinidad & Tobago", data: yCountryCasesAxis("Trinidad and Tobago")},
+                ],
+        responsive: {
+            rules: [{
+                condition: {maxWidth: 900},
+            }]
+        }
     }
     
     const country_deaths_options = {
         chart: {type: "line"},
         title: {text: 'COVID-19 Deaths by Caribbean Country'},
         xAxis: {categories: xDateAxis()},
-        series: [{name: "Antigua and Barbuda", data: yCountryDeathsAxis("Antigua and Barbuda")},
+        series: [{name: "Antigua & Barbuda", data: yCountryDeathsAxis("Antigua and Barbuda")},
                  {name: "Bahamas", data: yCountryDeathsAxis("Bahamas")},
                  {name: "Barbados", data: yCountryDeathsAxis("Barbados")},
                  {name: "Belize", data: yCountryDeathsAxis("Belize")},
@@ -54,12 +59,17 @@ const ChartsPage = ({data}) => {
                  {name: "Haiti", data: yCountryDeathsAxis("Haiti")},
                  {name: "Jamaica", data: yCountryDeathsAxis("Jamaica")},
                  {name: "Martinique", data: yCountryDeathsAxis("Martinique")},
-                 {name: "Saint Kitts and Nevis", data: yCountryDeathsAxis("Saint Kitts and Nevis")},
-                 {name: "Saint Lucia", data: yCountryDeathsAxis("Saint Lucia")},
-                 {name: "Saint Vincent and Grenadines", data: yCountryDeathsAxis("Saint Vincent and Grenadines")},
+                 {name: "St Kitts & Nevis", data: yCountryDeathsAxis("Saint Kitts and Nevis")},
+                 {name: "St Lucia", data: yCountryDeathsAxis("Saint Lucia")},
+                 {name: "St Vincent & Grenadines", data: yCountryDeathsAxis("Saint Vincent and Grenadines")},
                  {name: "Suriname", data: yCountryDeathsAxis("Suriname")},
-                 {name: "Trinidad and Tobago", data: yCountryDeathsAxis("Trinidad and Tobago")},
-                ]
+                 {name: "Trinidad & Tobago", data: yCountryDeathsAxis("Trinidad and Tobago")},
+                ],
+        responsive: {
+            rules: [{
+                condition: {maxWidth: 900},
+            }]
+        }
     }
     
     function xDateAxis(){

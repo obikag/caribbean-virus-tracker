@@ -110,8 +110,9 @@ exports.onPreInit = () => {
                             .filter(row => row.get('location') != 'World');
         var territory_df = df.filter(row => row.get('region') != '');
         //Set Dates Array
-        var today = moment(new Date()).utcOffset('-0400');
-        var dateRange = datesArray(new Date('2020-03-01'), new Date(today.format('YYYY-MM-DD')));
+        var maxdate = country_df.toArray("date").reduce(function(a,b){ return a > b ? a : b; });
+        var startdate = new Date(maxdate.getTime() - (15 * 24 * 60 * 60 * 1000));
+        var dateRange = datesArray(startdate, maxdate);
         var country_tc_arr = [],
             country_td_arr = [],
             territory_tc_arr = [],
