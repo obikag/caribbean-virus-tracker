@@ -14,6 +14,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "csv-parser": "^2.3.2",
+    "dataframe-js": "^1.4.3",
     "gatsby": "^2.19.45",
     "gatsby-plugin-anchor-links": "^1.1.1",
     "gatsby-plugin-google-analytics": "^2.2.2",
@@ -27,6 +29,7 @@
     "highcharts": "^8.0.4",
     "highcharts-react-official": "^3.0.0",
     "leaflet": "^1.6.0",
+    "moment": "^2.24.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
