@@ -29,7 +29,6 @@ const ChartsPage = ({data}) => {
                  {name: "Guyana", data: yCountryCasesAxis("Guyana")},
                  {name: "Haiti", data: yCountryCasesAxis("Haiti")},
                  {name: "Jamaica", data: yCountryCasesAxis("Jamaica")},
-                 {name: "Martinique", data: yCountryCasesAxis("Martinique")},
                  {name: "St Kitts & Nevis", data: yCountryCasesAxis("Saint Kitts and Nevis")},
                  {name: "St Lucia", data: yCountryCasesAxis("Saint Lucia")},
                  {name: "St Vincent & Grenadines", data: yCountryCasesAxis("Saint Vincent and Grenadines")},
@@ -58,7 +57,6 @@ const ChartsPage = ({data}) => {
                  {name: "Guyana", data: yCountryDeathsAxis("Guyana")},
                  {name: "Haiti", data: yCountryDeathsAxis("Haiti")},
                  {name: "Jamaica", data: yCountryDeathsAxis("Jamaica")},
-                 {name: "Martinique", data: yCountryDeathsAxis("Martinique")},
                  {name: "St Kitts & Nevis", data: yCountryDeathsAxis("Saint Kitts and Nevis")},
                  {name: "St Lucia", data: yCountryDeathsAxis("Saint Lucia")},
                  {name: "St Vincent & Grenadines", data: yCountryDeathsAxis("Saint Vincent and Grenadines")},
@@ -81,7 +79,7 @@ const ChartsPage = ({data}) => {
     }
 
     function yCountryCasesAxis(key){
-        key = key.replace(/\s/g, '_');
+        key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
         let yValues = [];
         data.country_cases.nodes.forEach(node => {
             yValues.push(parseInt(node[key]));
@@ -91,7 +89,7 @@ const ChartsPage = ({data}) => {
 
     
     function yCountryDeathsAxis(key){
-        key = key.replace(/\s/g, '_');
+        key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
         let yValues = [];
         data.country_deaths.nodes.forEach(node => {
             yValues.push(parseInt(node[key]));
@@ -226,7 +224,6 @@ query ChartsPageQuery {
       Guyana
       Haiti
       Jamaica
-      Martinique
       Saint_Kitts_and_Nevis
       Saint_Lucia
       Saint_Vincent_and_the_Grenadines
@@ -248,7 +245,6 @@ query ChartsPageQuery {
       Guyana
       Haiti
       Jamaica
-      Martinique
       Saint_Kitts_and_Nevis
       Saint_Lucia
       Saint_Vincent_and_the_Grenadines
