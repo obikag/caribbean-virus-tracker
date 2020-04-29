@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import { StaticQuery, Link, graphql } from 'gatsby';
+import { Nav, Navbar, Container } from 'react-bootstrap';
+import { StaticQuery, graphql } from 'gatsby';
 
 const Header = ({title="", description="", url=""}) => {
       return (
@@ -10,6 +11,7 @@ const Header = ({title="", description="", url=""}) => {
                render={data => (
                   <Helmet title={title || data.site.siteMetadata.defaultTitle} titleTemplate={data.site.siteMetadata.titleTemplate}>
                      <meta charSet="utf-8" />
+                     <meta keywords="Caribbean,Coronavrus,COVID,Virus,Tracker" />
                      <meta name="description" content={description || data.site.siteMetadata.defaultDescription} />
                      <meta name="image" content={data.site.siteMetadata.defaultImage} />
                      {data.site.siteMetadata.siteUrl && <meta property="og:url" content={url || data.site.siteMetadata.siteUrl} />}
@@ -33,41 +35,31 @@ const Header = ({title="", description="", url=""}) => {
                )}
             />
             <header>
-            <nav class="navbar navbar-expand-md navbar-light" style={{backgroundColor: "#ece136"}}>
-               <div class="container">
-                  <a class="navbar-brand" href="/"><i class="fa fa-shield-virus fa-lg"></i> <span><strong>Caribbean Virus Tracker</strong></span></a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-links" aria-controls="menuLinks" aria-expanded="false" aria-label="Toggle navigation">
-                     <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="menu-links">
-                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                           <Link to="/" className="nav-link" activeClassName="active">
-                              <i class="fa fa-fw fa-home" aria-hidden="true"></i>&nbsp;Home<span class="sr-only"></span>
-                           </Link>
-                        </li>
-                        <li class="nav-item">
-                           <Link to="/world/" className="nav-link" activeClassName="active">
-                              <i class="fa fa-fw fa-globe" aria-hidden="true"></i>&nbsp;World
-                           </Link>
-                        </li>
-                        <li class="nav-item">
-                           <Link to="/about/" className="nav-link" activeClassName="active">
-                              <i class="fa fa-fw fa-address-card" aria-hidden="true"></i>&nbsp;About
-                           </Link>
-                        </li>
-                        <li class="nav-item">
-                           <Link to="/faq/" className="nav-link" activeClassName="active">
-                              <i class="fa fa-fw fa-question-circle" aria-hidden="true"></i>&nbsp;FAQ
-                           </Link>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="https://github.com/obikag/caribbean-virus-tracker"><i class="fa fa-fw fa-github-alt" aria-hidden="true"></i>GitHub</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </nav>
+            <Navbar className="color-nav" variant="light" expand="md">
+               <Container>
+                  <Navbar.Brand href="/"><i class="fa fa-shield-virus fa-lg"></i> <span><strong>Caribbean Virus Tracker</strong></span></Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                     <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ml-auto">
+                        <Nav.Link href="/" className="active">
+                           <i class="fa fa-fw fa-home" aria-hidden="true"></i>&nbsp;Home<span class="sr-only"></span>
+                        </Nav.Link>
+                        <Nav.Link href="/world/" className="active">
+                           <i class="fa fa-fw fa-globe" aria-hidden="true"></i>&nbsp;World
+                        </Nav.Link>
+                        <Nav.Link href="/about/" className="active">
+                           <i class="fa fa-fw fa-address-card" aria-hidden="true"></i>&nbsp;About
+                        </Nav.Link>
+                        <Nav.Link href="/faq/" className="active">
+                           <i class="fa fa-fw fa-question-circle" aria-hidden="true"></i>&nbsp;FAQ
+                        </Nav.Link>
+                        <Nav.Link href="https://github.com/obikag/caribbean-virus-tracker">
+                           <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i>&nbsp;GitHub
+                        </Nav.Link>
+                        </Nav>
+                     </Navbar.Collapse>
+               </Container>
+            </Navbar>
          </header>
          </Fragment>
       );

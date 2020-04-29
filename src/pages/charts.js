@@ -79,7 +79,8 @@ const ChartsPage = ({data}) => {
     }
 
     function yCountryCasesAxis(key){
-        key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
+        //key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
+        key = key.replace(/\s/g, '_');
         let yValues = [];
         data.country_cases.nodes.forEach(node => {
             yValues.push(parseInt(node[key]));
@@ -89,7 +90,8 @@ const ChartsPage = ({data}) => {
 
     
     function yCountryDeathsAxis(key){
-        key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
+        key = key.replace(/\s/g, '_');
+        //key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
         let yValues = [];
         data.country_deaths.nodes.forEach(node => {
             yValues.push(parseInt(node[key]));
