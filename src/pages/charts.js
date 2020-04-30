@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import '../components/global.css';
+import { Container, Row, Col } from 'react-bootstrap';
 import { graphql } from 'gatsby';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -79,7 +80,8 @@ const ChartsPage = ({data}) => {
     }
 
     function yCountryCasesAxis(key){
-        key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
+        //key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
+        key = key.replace(/\s/g, '_');
         let yValues = [];
         data.country_cases.nodes.forEach(node => {
             yValues.push(parseInt(node[key]));
@@ -89,7 +91,8 @@ const ChartsPage = ({data}) => {
 
     
     function yCountryDeathsAxis(key){
-        key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
+        key = key.replace(/\s/g, '_');
+        //key = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'').replace(/\s/g, '_');
         let yValues = [];
         data.country_deaths.nodes.forEach(node => {
             yValues.push(parseInt(node[key]));
@@ -134,47 +137,47 @@ const ChartsPage = ({data}) => {
     <Fragment>
         <Header />
             <main>
-                <div class="container py-2">
-                    <div class="row">
-                        <div class="col-md-12">
+                <Container className="py-2">
+                    <Row>
+                        <Col md="12">
                             <h1 class="header">Charts Page</h1>
                             <br></br>
                             <div class="alert alert-info text-center" role="alert">
                                 <h5>Last Updated on <strong>{data.latest_data.nodes[0].updatedate}</strong></h5>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container py-2">
-                    <div class="row">
-                        <div class="col-md-12">
+                        </Col>
+                    </Row>
+                </Container>
+                <Container className="py-2">
+                    <Row>
+                        <Col md="12">
                             <HighchartsReact
                                 highcharts={Highcharts}
                                 options={caribbean_options}
                             />
-                        </div>
-                    </div>
-                </div>
-                <div class="container py-2">
-                    <div class="row">
-                        <div class="col-md-12">
+                        </Col>
+                    </Row>
+                </Container>
+                <Container className="py-2">
+                    <Row>
+                        <Col md="12">
                             <HighchartsReact
                                 highcharts={Highcharts}
                                 options={country_cases_options}
                             />
-                        </div>
-                    </div>
-                </div>
-                <div class="container py-2">
-                    <div class="row">
-                        <div class="col-md-12">
+                        </Col>
+                    </Row>
+                </Container>
+                <Container className="py-2">
+                    <Row>
+                        <Col md="12">
                             <HighchartsReact
                                 highcharts={Highcharts}
                                 options={country_deaths_options}
                             />
-                        </div>
-                    </div>
-                </div>
+                        </Col>
+                    </Row>
+                </Container>
             </main>
         <Footer />
     </Fragment>

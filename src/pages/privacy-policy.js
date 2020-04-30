@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import '../components/global.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const PrivacyPolicyPage = () => {
     return (
@@ -12,9 +13,9 @@ const PrivacyPolicyPage = () => {
                 url="https://caribbeanvirustracker.com/privacy-policy/"
             />
                 <main>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h1 class="header">Privacy Policy</h1>
                                 <p>At Caribbean Virus Tracker, accessible from https://caribbeanvirustracker.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Caribbean Virus Tracker and how we use it.</p>
                                 <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Caribbean Virus Tracker. This policy is not applicable to any information collected offline or via channels other than this website.</p>
@@ -62,9 +63,9 @@ const PrivacyPolicyPage = () => {
                                 <h2>Children's Information</h2>
                                 <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
                                 <p>Caribbean Virus Tracker does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
-                            </div>
-                        </div>
-                    </div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </main>
             <Footer />
         </Fragment>

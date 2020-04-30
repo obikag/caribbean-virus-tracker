@@ -6,7 +6,7 @@ import '../components/global.css';
 import { graphql } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { Map, TileLayer, CircleMarker, Popup } from 'react-leaflet';
-
+import { Container, Row, Col, Alert } from 'react-bootstrap';
 
 const TableRow = ({node, lastupdated}) => {
 
@@ -175,13 +175,13 @@ const HomePage = ({data, location}) => {
             <Fragment>
                 <Header title="Home"/>
                     <main>
-                        <div class="container py-2">
-                            <div class="row">
-                                <div class="col-md-8">
+                        <Container className="py-2">
+                            <Row>
+                                <Col md="8">
                                     <h1 class="header">Welcome to Caribbean Virus Tracker</h1>
                                     <h5><em>These are the reported statistics for Coronavirus outbreak in the Caribbean.</em></h5>
-                                </div>
-                                <div class="col-md-4">
+                                </Col>
+                                <Col md="4">
                                     <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#3b5998", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com">
                                         <i class="fab fa-facebook-square fa-lg"></i> <span>Share</span>
                                     </a>
@@ -194,21 +194,21 @@ const HomePage = ({data, location}) => {
                                     <a class="btn btn-dark btn-sm mx-1 my-1" style={{backgroundColor: "#0e76a8", borderStyle: "none"}} target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com&title=&summary=&source=">
                                         <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
                                     </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container py-2">
-                            <div class="row">
-                                <div class="col-md-12">
+                                </Col>
+                            </Row>
+                        </Container>
+                        <Container className="py-2">
+                            <Row>
+                                <Col md="12">
                                 <h2 class="header">Caribbean Outbreak Statistics</h2>
-                                <div class="alert alert-info text-center" role="alert">
+                                <Alert variant="info" className="text-center">
                                     <h5>Last Updated on <strong>{data.max_date.nodes[0].updatedate}</strong></h5>
-                                </div>
+                                </Alert>
                                 <br></br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col md="3">
                                     <div class="card mb-3">
                                         <div class="card-header text-center text-white bg-primary">
                                             <h1 style={{fontFamily: "Special Elite"}}>{totalCases()}</h1>
@@ -218,8 +218,8 @@ const HomePage = ({data, location}) => {
                                             <p class="card-text" style={{fontSize: "9px"}}>Total confirmed Coronavirus infections</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
+                                </Col>
+                                <Col md="3">
                                     <div class="card mb-3">
                                         <div class="card-header text-center text-white bg-warning">
                                             <h1 style={{fontFamily: "Special Elite"}}>{totalNewCases()}</h1>
@@ -229,8 +229,8 @@ const HomePage = ({data, location}) => {
                                             <p class="card-text" style={{fontSize: "9px"}}>Newly reported Coronavirus infections</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
+                                </Col>
+                                <Col md="3">
                                     <div class="card mb-3">
                                         <div class="card-header text-center text-white bg-danger">
                                             <h1 style={{fontFamily: "Special Elite"}}>{totalDeaths()}</h1>
@@ -240,8 +240,8 @@ const HomePage = ({data, location}) => {
                                             <p class="card-text" style={{fontSize: "9px"}}>Total confirmed deaths linked to Coronavirus</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
+                                </Col>
+                                <Col md="3">
                                     <div class="card mb-3">
                                         <div class="card-header text-center text-white bg-secondary">
                                             <h1 style={{fontFamily: "Special Elite"}}>{totalNewDeaths()}</h1>
@@ -251,12 +251,12 @@ const HomePage = ({data, location}) => {
                                             <p class="card-text" style={{fontSize: "9px"}}>Newly reported deaths linked to Coronavirus</p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container py-2">
-                            <div class="row">
-                                <div class="col-md-12">
+                                </Col>
+                            </Row>
+                        </Container>
+                        <Container className="py-2">
+                            <Row>
+                                <Col md="12">
                                 <h2 class="header">Interactive Map</h2>
                                 <div class="row text-center border">
                                     <div class="col-md-3 py-2"><strong>Legend:</strong></div>
@@ -282,17 +282,17 @@ const HomePage = ({data, location}) => {
                                         : ''
                                     ))}
                                 </Map>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container py-2">
-                            <div class="row">
-                                <div class="col-md-12">
+                                </Col>
+                            </Row>
+                        </Container>
+                        <Container className="py-2">
+                            <Row>
+                                <Col md="12">
                                     <p><em>* When viewing on a mobile device, scroll right.</em></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col md="12">
                                     <div class="table-responsive-md pb-3">
                                         <table id="table" class="table table-bordered">
                                             <thead>
@@ -324,9 +324,9 @@ const HomePage = ({data, location}) => {
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                </Col>
+                            </Row>
+                        </Container>
                     </main>
                 <Footer />
             </Fragment>
