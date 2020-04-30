@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import '../components/global.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const FaqPage = () => {
     return (
@@ -12,16 +13,16 @@ const FaqPage = () => {
                 url="https://caribbeanvirustracker.com/faq/"
             />
                 <main>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h1 class="header">Frequently Asked Questions</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                            </Col>
+                        </Row>
+                    </Container>
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h2 class="header">General Information</h2>
                                 <hr></hr>
                                 <h5>What is the coronavirus?</h5>
@@ -63,12 +64,12 @@ const FaqPage = () => {
                                 </ul> 
                                 People with fever, cough and difficulty breathing should seek medical attention.
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                            </Col>
+                        </Row>
+                    </Container>
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h2 class="header">How the Coronavirus Spreads</h2>
                                 <hr></hr>
                                 <h5>How does the virus spread?</h5>
@@ -81,12 +82,12 @@ const FaqPage = () => {
                                 <p>TBC</p>
                                 <h5>Can the COVID-19 be spread through restaruant food, refrigerated or frozen packaged food?</h5>
                                 <p>TBC</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                            </Col>
+                        </Row>
+                    </Container>
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h2 class="header">Protecting Yourself</h2>
                                 <hr></hr>
                                 <h5>How can I help protect myself?</h5>
@@ -95,12 +96,12 @@ const FaqPage = () => {
                                 <p>TBC</p>
                                 <h5>Is it okay for me to donate blood?</h5>
                                 <p>TBC</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                            </Col>
+                        </Row>
+                    </Container>
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h2 class="header">Protecting Your Home</h2>
                                 <hr></hr>
                                 <h5>How can I and my family prepare for COVID-19?</h5>
@@ -111,18 +112,18 @@ const FaqPage = () => {
                                 <p>TBC</p>
                                 <h5>What are the risks for children?</h5>
                                 <p>TBC</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                            </Col>
+                        </Row>
+                    </Container>
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h2 class="header">Related Websites</h2>
                                 <hr></hr>
                                 <p>Under Construction <a href="/">Click here</a> to go back to the Home Page</p>
-                            </div>
-                        </div>
-                    </div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </main>
             <Footer />
         </Fragment>

@@ -3,7 +3,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import '../components/global.css';
 import { graphql } from 'gatsby';
-
+import { Container, Row, Col, Alert } from 'react-bootstrap';
 
 const WorldPage = ({data}) => {
     
@@ -19,20 +19,20 @@ const WorldPage = ({data}) => {
                 url="https://caribbeanvirustracker.com/world/"
             />
                 <main>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <h1 class="header">World Outbreak Statistics</h1>
                                 <h5><em>These are the latest reported World stats for the Coronavirus outbreak.</em></h5>
-                                <div class="alert alert-info text-center" role="alert">
+                                <Alert variant="info" className="text-center" role="alert">
                                     <h5>Last Updated on <strong>{data.latest_data.nodes[0].updatedate}</strong></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-3">
+                                </Alert>
+                            </Col>
+                        </Row>
+                    </Container>
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-success">
                                         <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].total_cases_1)}</h1>
@@ -42,8 +42,8 @@ const WorldPage = ({data}) => {
                                         <p class="card-text" style={{fontSize: "10px"}}>Total confirmed Coronavirus infections</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
+                            </Col>
+                            <Col md="3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-warning">
                                         <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].new_cases_1)}</h1>
@@ -53,8 +53,8 @@ const WorldPage = ({data}) => {
                                         <p class="card-text" style={{fontSize: "10px"}}>Newly reported Coronavirus infections</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
+                            </Col>
+                            <Col md="3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-danger">
                                         <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].total_deaths_1)}</h1>
@@ -64,8 +64,8 @@ const WorldPage = ({data}) => {
                                         <p class="card-text" style={{fontSize: "10px"}}>Total confirmed deaths linked to Coronavirus</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
+                            </Col>
+                            <Col md="3">
                                 <div class="card mb-3">
                                     <div class="card-header text-center text-white bg-dark">
                                         <h1 style={{fontFamily: "Special Elite"}}>{numFormatter(data.latest_data.nodes[0].new_deaths_1)}</h1>
@@ -75,13 +75,13 @@ const WorldPage = ({data}) => {
                                         <p class="card-text" style={{fontSize: "10px"}}>Newly reported deaths linked to Coronavirus</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </Col>
+                        </Row>
+                    </Container>
                     <br></br>
-                    <div class="container py-2">
-                        <div class="row">
-                            <div class="col-md-12">
+                    <Container className="py-2">
+                        <Row>
+                            <Col md="12">
                                 <div class="table-responsive-md pb-3">
                                     <table class="table table-bordered">
                                         <thead>
@@ -109,9 +109,9 @@ const WorldPage = ({data}) => {
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </main>
             <Footer />
         </Fragment>
