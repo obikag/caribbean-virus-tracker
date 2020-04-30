@@ -33,7 +33,7 @@ const AboutPage = () => {
                     </Container>
                     <Container className="py-2">
                         <Row>
-                            <Col md="3">
+                            <Col md="12">
                                 <h1 class="header">About the Author</h1>
                             </Col>
                         </Row>

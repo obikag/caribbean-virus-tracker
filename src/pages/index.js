@@ -173,7 +173,7 @@ const HomePage = ({data, location}) => {
     if (typeof window !== 'undefined') {
         return (
             <Fragment>
-                <Header title="Home"/>
+                <Header title="Home" />
                     <main>
                         <Container className="py-2">
                             <Row>

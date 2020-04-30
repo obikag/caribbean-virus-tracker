@@ -10,7 +10,7 @@ module.exports = {
     title: "Caribbean Virus Tracker",
     titleTemplate: "%s · Tracking the Coronavirus outbreak in the Caribbean",
     description:
-      "Web site to track Coronavirus throughout the Caribbean",
+      "This website provides the Caribbean community with an overview of the ongoing COVID-19 pandemic throughout the Caribbean.",
     siteUrl: "https://caribbeanvirustracker.com",
     image: "/cvt-image.png",
   },
