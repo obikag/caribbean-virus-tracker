@@ -15,70 +15,74 @@ module.exports = {
     image: "/cvt-image.png",
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-anchor-links',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-robots-txt',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-anchor-links",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-robots-txt",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'data',
+        name: "data",
         path: `${__dirname}/src/data/`,
       },
     },
     {
-      resolve: 'gatsby-transformer-csv',
-      options:{
+      resolve: "gatsby-transformer-csv",
+      options: {
         colParser: {
-          "date": function(item, head, resultRow, row , colIdx){
-            var dateParts = item.split("/");
-            var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
-              return dateObject;
+          date: function(item, head, resultRow, row, colIdx) {
+            var dateParts = item.split("/")
+            var dateObject = new Date(
+              +dateParts[2],
+              dateParts[1] - 1,
+              +dateParts[0]
+            )
+            return dateObject
           },
-          "location": "string",
-          "latitude": "number",
-          "longitude": "number",
-          "region": "string",
-          "iso_code": "string",
-          "total_cases_1": "number",
-          "total_cases_2": "number",
-          "new_cases_1": "number",
-          "new_cases_2": "number",
-          "total_deaths_1": "number",
-          "total_deaths_2": "number",
-          "new_deaths_1": "number",
-          "new_deaths_2": "number",
-          "recovered": "number",
-          "source_name_1": "string",
-          "source_url_1": "string",
-          "source_name_2": "string",
-          "source_url_2": "string",
-        },   
+          location: "string",
+          latitude: "number",
+          longitude: "number",
+          region: "string",
+          iso_code: "string",
+          total_cases_1: "number",
+          total_cases_2: "number",
+          new_cases_1: "number",
+          new_cases_2: "number",
+          total_deaths_1: "number",
+          total_deaths_2: "number",
+          new_deaths_1: "number",
+          new_deaths_2: "number",
+          recovered: "number",
+          source_name_1: "string",
+          source_url_1: "string",
+          source_name_2: "string",
+          source_url_2: "string",
+        },
       },
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: 'Caribbean Virus Tracker',
-        short_name: 'CaribbeanVirusTracker',
-        start_url: '/',
-        background_color: '#dfdcf2',
-        theme_color: '#016a87',
-        display: 'standalone',
+        name: "Caribbean Virus Tracker",
+        short_name: "CaribbeanVirusTracker",
+        start_url: "/",
+        background_color: "#dfdcf2",
+        theme_color: "#016a87",
+        display: "standalone",
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: 'UA-60061038-3',
+        trackingId: "UA-60061038-3",
         head: true,
       },
     },
     {
-      resolve: 'gatsby-plugin-react-leaflet',
+      resolve: "gatsby-plugin-react-leaflet",
       options: {
-        linkStyles: true
-      }
+        linkStyles: true,
+      },
     },
-  ]
+  ],
 }
