@@ -20,7 +20,9 @@ const TableRow = ({ node, lastupdated }) => {
         <tr>
           <td>
             <div>
-              {node.location} {node.region ? "(" + node.region + ")" : ""}
+              <a href={"/"+node.iso_code}>
+                {node.location} {node.region ? "(" + node.region + ")" : ""}
+              </a>
             </div>
             <div>
               <a
