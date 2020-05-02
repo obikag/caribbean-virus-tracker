@@ -1,21 +1,43 @@
 const DataFrame = require(`dataframe-js`).DataFrame
 const csv = require(`csv-parser`)
 const fs = require(`fs`)
-const path = require('path')
+const path = require("path")
 
 const results = []
 const iso_codes = [
-  "AG","AI","AW",
-  "BB","BL","BM",
-  "BQ","BS","BZ",
-  "CU","CW","DM",
-  "DO","GD","GF",
-  "GP","GY","HT",
-  "JM","KN","KY",
-  "LC","MF","MQ",
-  "MS","PR","SR",
-  "SX","TC","TT",
-  "VC","VG","VI"
+  "AG",
+  "AI",
+  "AW",
+  "BB",
+  "BL",
+  "BM",
+  "BQ",
+  "BS",
+  "BZ",
+  "CU",
+  "CW",
+  "DM",
+  "DO",
+  "GD",
+  "GF",
+  "GP",
+  "GY",
+  "HT",
+  "JM",
+  "KN",
+  "KY",
+  "LC",
+  "MF",
+  "MQ",
+  "MS",
+  "PR",
+  "SR",
+  "SX",
+  "TC",
+  "TT",
+  "VC",
+  "VG",
+  "VI",
 ]
 const countries = [
   "Antigua and Barbuda",
@@ -305,12 +327,17 @@ exports.onPreInit = () => {
 }
 
 exports.createPages = ({ actions }) => {
-  const { createPage } = actions;
-  const template = `${__dirname}/src/templates/island.js`;
-  const df = new DataFrame(results);
+  const { createPage } = actions
+  const template = `${__dirname}/src/templates/island.js`
+  const df = new DataFrame(results)
   iso_codes.forEach(iso_code => {
-    var path = iso_code;
-    var island_json = JSON.parse(df.filter(row => row.get("iso_code") === iso_code).sortBy('date',true).toJSON());
+    var path = iso_code
+    var island_json = JSON.parse(
+      df
+        .filter(row => row.get("iso_code") === iso_code)
+        .sortBy("date", true)
+        .toJSON()
+    )
     createPage({
       path,
       component: template,

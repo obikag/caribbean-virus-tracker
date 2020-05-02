@@ -82,23 +82,40 @@ const FaqPage = () => {
               <h2 class="header">How the Coronavirus Spreads</h2>
               <hr></hr>
               <h5>How does the virus spread?</h5>
-              <p>TBC</p>
+              <p>
+                People can catch COVID-19 from others who have the virus. The
+                disease can spread from person to person through small droplets
+                from the nose or mouth which are spread when a person with
+                COVID-19 coughs or exhales. These droplets land on objects and
+                surfaces around the person. Other people then catch COVID-19 by
+                touching these objects or surfaces, then touching their eyes,
+                nose or mouth. People can also catch COVID-19 if they breathe in
+                droplets from a person with COVID-19 who coughs out or exhales
+                droplets.
+              </p>
               <h5>
                 Can someone who had COVID-19 spread the illness to others?
               </h5>
-              <p>TBC</p>
-              <h5>
-                Can someone who has been quarantined for COVID-19 spread the
-                illness to others?
-              </h5>
-              <p>TBC</p>
+              <p>
+                The virus that causes COVID-19 is spreading from
+                person-to-person. People are thought to be most contagious when
+                they are symptomatic (the sickest). Someone who has been
+                released from isolation is not considered to pose a risk of
+                infection to others.
+              </p>
               <h5>Can I get sick with COVID-19 if it is on food?</h5>
-              <p>TBC</p>
+              <p>
+                Based on information about this novel coronavirus thus far, it
+                seems unlikely that COVID-19 can be transmitted through food.
+              </p>
               <h5>
                 Can the COVID-19 be spread through restaruant food, refrigerated
                 or frozen packaged food?
               </h5>
-              <p>TBC</p>
+              <p>
+                Currently, there is no evidence to support transmission of
+                COVID-19 associated with food.
+              </p>
             </Col>
           </Row>
         </Container>
@@ -108,33 +125,64 @@ const FaqPage = () => {
               <h2 class="header">Protecting Yourself</h2>
               <hr></hr>
               <h5>How can I help protect myself?</h5>
-              <p>TBC</p>
+              <p>
+                You should:
+                <ul>
+                  <li>
+                    Wash your hands often with soap and water for at least 20
+                    seconds especially after you have been in a public place, or
+                    after blowing your nose, coughing, or sneezing
+                  </li>
+                  <li>Avoid close contact with people who are sick</li>
+                  <li>
+                    Everyone should wear a cloth face cover when they have to go
+                    out in public, for example to the grocery store or to pick
+                    up other necessities.
+                  </li>
+                  <li>
+                    If you are in a private setting and do not have on your
+                    cloth face covering, remember to always cover your mouth and
+                    nose with a tissue when you cough or sneeze or use the
+                    inside of your elbow.
+                  </li>
+                  <li>
+                    Clean AND disinfect frequently touched surfaces daily. This
+                    includes tables, doorknobs, light switches, countertops,
+                    handles, desks, phones, keyboards, toilets, faucets, and
+                    sinks.
+                  </li>
+                </ul>
+              </p>
               <h5>
                 What should I do if I have had close contact with someone who
                 has COVID-19?
               </h5>
-              <p>TBC</p>
-              <h5>Is it okay for me to donate blood?</h5>
-              <p>TBC</p>
-            </Col>
-          </Row>
-        </Container>
-        <Container className="py-2">
-          <Row>
-            <Col md="12">
-              <h2 class="header">Protecting Your Home</h2>
-              <hr></hr>
-              <h5>How can I and my family prepare for COVID-19?</h5>
-              <p>TBC</p>
-              <h5>What cleaning products should I use to sanitize my home?</h5>
-              <p>TBC</p>
-              <h5>
-                What should I do if I suspect that I or someone from my
-                household has been exposed to COVID-19?
-              </h5>
-              <p>TBC</p>
-              <h5>What are the risks for children?</h5>
-              <p>TBC</p>
+              <p>
+                You should:
+                <ul>
+                  <li>Limit Contact with the person as much as possible</li>
+                  <li>
+                    Stay separated: The person who is sick should eat (or be
+                    fed) in their room, if possible
+                  </li>
+                  <li>
+                    Avoid sharing personal items: Do not share dishes,
+                    cups/glasses, silverware, towels, bedding, or electronics
+                    with the person who is sick.
+                  </li>
+                  <li>
+                    When interacting with the person: Wear gloves when you touch
+                    or have contact with blood, stool, or body fluids, such as
+                    saliva, mucus, vomit, and urine. Throw out gloves into a
+                    lined trash can
+                  </li>
+                  <li>
+                    Wash hands: Wash your hands often with soap and water for at
+                    least 20 seconds. Tell everyone in the home to do the same,
+                    especially after being near the person who is sick.
+                  </li>
+                </ul>
+              </p>
             </Col>
           </Row>
         </Container>

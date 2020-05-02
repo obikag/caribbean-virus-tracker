@@ -10,9 +10,15 @@ import { Container, Row, Col, Alert } from "react-bootstrap"
 
 const TableRow = ({ node, lastupdated }) => {
   node.total_cases = Math.max(node.total_cases_1, node.total_cases_2)
-  node.new_cases = Math.max(node.new_cases_1, node.new_cases_2)
+  node.new_cases =
+    node.total_cases_1 > node.total_cases_2
+      ? node.new_cases_1
+      : node.new_cases_2
   node.total_deaths = Math.max(node.total_deaths_1, node.total_deaths_2)
-  node.new_deaths = Math.max(node.new_deaths_1, node.new_deaths_2)
+  node.new_deaths =
+    node.total_deaths_1 > node.total_deaths_2
+      ? node.new_deaths_1
+      : node.new_deaths_2
 
   if (lastupdated === true) {
     return (
@@ -20,8 +26,9 @@ const TableRow = ({ node, lastupdated }) => {
         <tr>
           <td>
             <div>
-              <a href={"/"+node.iso_code}>
-                {node.location} {node.region ? "(" + node.region + ")" : ""}
+              {node.location} {node.region ? "(" + node.region + ")" : ""}&nbsp;
+              <a class="btn btn-light btn-sm" href={"/" + node.iso_code}>
+                <i class="fa fa-plus-square"></i>
               </a>
             </div>
             <div>
@@ -76,7 +83,9 @@ const HomePage = ({ data, location }) => {
     let count = 0
     data.all_data.nodes.forEach(node => {
       if (node.date === update_date) {
-        count += Math.max(node.new_cases_1, node.new_cases_2)
+        node.total_cases_1 > node.total_cases_2
+          ? (count += node.new_cases_1)
+          : (count += node.new_cases_2)
       }
     })
     return numFormatter(count)
@@ -98,7 +107,9 @@ const HomePage = ({ data, location }) => {
     let count = 0
     data.all_data.nodes.forEach(node => {
       if (node.date === update_date) {
-        count += Math.max(node.new_deaths_1, node.new_deaths_2)
+        node.total_deaths_1 > node.total_deaths_2
+          ? (count += node.new_deaths_1)
+          : (count += node.new_deaths_2)
       }
     })
     return count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")

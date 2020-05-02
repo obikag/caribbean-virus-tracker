@@ -10,7 +10,9 @@ import HighchartsReact from "highcharts-react-official"
 const ChartsPage = ({ data }) => {
   const caribbean_options = {
     chart: { type: "bar", height: 600 },
-    title: { text: "COVID-19 Cases throughout the Caribbean" },
+    title: {
+      text: "COVID-19 Cases and Related Deaths throughout the Caribbean",
+    },
     xAxis: { categories: xLocationAxis(), labels: { step: 1 } },
     series: [
       { name: "Total Cases", data: yTotalCasesAxis() },
@@ -19,7 +21,7 @@ const ChartsPage = ({ data }) => {
   }
   const country_cases_options = {
     chart: { type: "line" },
-    title: { text: "COVID-19 Cases by Caribbean Country" },
+    title: { text: "COVID-19 Cases for Caribbean Countries" },
     xAxis: { categories: xDateAxis() },
     series: [
       {
@@ -65,7 +67,7 @@ const ChartsPage = ({ data }) => {
 
   const country_deaths_options = {
     chart: { type: "line" },
-    title: { text: "COVID-19 Deaths by Caribbean Country" },
+    title: { text: "COVID-19 Related Deaths for Caribbean Countries" },
     xAxis: { categories: xDateAxis() },
     series: [
       {
@@ -111,7 +113,7 @@ const ChartsPage = ({ data }) => {
 
   const territory_cases_options = {
     chart: { type: "line" },
-    title: { text: "COVID-19 Cases by Caribbean Territory" },
+    title: { text: "COVID-19 Cases for Caribbean Territories" },
     xAxis: { categories: xDateAxis() },
     series: [
       {
@@ -166,7 +168,7 @@ const ChartsPage = ({ data }) => {
 
   const territory_deaths_options = {
     chart: { type: "line" },
-    title: { text: "COVID-19 Deaths by Caribbean Territory" },
+    title: { text: "COVID-19 Related Deaths for Caribbean Territories" },
     xAxis: { categories: xDateAxis() },
     series: [
       {
@@ -229,7 +231,7 @@ const ChartsPage = ({ data }) => {
       plotShadow: false,
       type: "pie",
     },
-    title: { text: "COVID-19 Country vs. Territory Cases" },
+    title: { text: "Proportion of COVID-19 Cases throughout the Caribbean" },
     accessibility: {
       point: {
         valueSuffix: "%",
@@ -264,7 +266,7 @@ const ChartsPage = ({ data }) => {
     responsive: {
       rules: [
         {
-          condition: { maxWidth: 450 },
+          condition: { maxWidth: 250 },
         },
       ],
     },
@@ -277,7 +279,9 @@ const ChartsPage = ({ data }) => {
       plotShadow: false,
       type: "pie",
     },
-    title: { text: "COVID-19 Country vs. Territory Deaths" },
+    title: {
+      text: "Proportion of COVID-19 Related Deaths throughout the Caribbean",
+    },
     accessibility: {
       point: {
         valueSuffix: "%",
@@ -312,7 +316,7 @@ const ChartsPage = ({ data }) => {
     responsive: {
       rules: [
         {
-          condition: { maxWidth: 450 },
+          condition: { maxWidth: 250 },
         },
       ],
     },
@@ -320,7 +324,7 @@ const ChartsPage = ({ data }) => {
 
   const territory_region_cases_options = {
     chart: { type: "column" },
-    title: { text: "COVID-19 Cases by Caribbean Territory by Region" },
+    title: { text: "COVID-19 Cases for Caribbean Regional Territories" },
     xAxis: {
       categories: [
         "French Territories",
@@ -351,7 +355,9 @@ const ChartsPage = ({ data }) => {
 
   const territory_region_deaths_options = {
     chart: { type: "column" },
-    title: { text: "COVID-19 Deaths by Caribbean Territory by Region" },
+    title: {
+      text: "COVID-19 Related Deaths for Caribbean Regional Territories",
+    },
     xAxis: {
       categories: [
         "French Territories",
@@ -478,14 +484,17 @@ const ChartsPage = ({ data }) => {
         <Container className="py-2">
           <Row>
             <Col md="12">
+              <h2 class="header pt-1 pb-2">Caribbean Countries</h2>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="12">
               <HighchartsReact
                 highcharts={Highcharts}
                 options={country_cases_options}
               />
             </Col>
           </Row>
-        </Container>
-        <Container className="py-2">
           <Row>
             <Col md="12">
               <HighchartsReact
@@ -498,14 +507,17 @@ const ChartsPage = ({ data }) => {
         <Container className="py-2">
           <Row>
             <Col md="12">
+              <h2 class="header pt-1 pb-2">Caribbean Territories</h2>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="12">
               <HighchartsReact
                 highcharts={Highcharts}
                 options={territory_cases_options}
               />
             </Col>
           </Row>
-        </Container>
-        <Container className="py-2">
           <Row>
             <Col md="12">
               <HighchartsReact
@@ -518,14 +530,19 @@ const ChartsPage = ({ data }) => {
         <Container className="py-2">
           <Row>
             <Col md="12">
+              <h2 class="header pt-1 pb-2">
+                Caribbean Countries and Territories
+              </h2>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="6">
               <HighchartsReact
                 highcharts={Highcharts}
                 options={country_vs_territory_cases}
               />
             </Col>
-          </Row>
-          <Row>
-            <Col md="12">
+            <Col md="6">
               <HighchartsReact
                 highcharts={Highcharts}
                 options={country_vs_territory_deaths}
@@ -536,14 +553,17 @@ const ChartsPage = ({ data }) => {
         <Container className="py-2">
           <Row>
             <Col md="12">
+              <h2 class="header pt-1 pb-2">Caribbean Regional Territories</h2>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="6">
               <HighchartsReact
                 highcharts={Highcharts}
                 options={territory_region_cases_options}
               />
             </Col>
-          </Row>
-          <Row>
-            <Col md="12">
+            <Col md="6">
               <HighchartsReact
                 highcharts={Highcharts}
                 options={territory_region_deaths_options}

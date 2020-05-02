@@ -41,7 +41,7 @@ const WorldPage = ({ data }) => {
           <Row>
             <Col md="3">
               <div class="card mb-3">
-                <div class="card-header text-center text-white bg-success">
+                <div class="card-header text-center text-white bg-primary">
                   <h1 style={{ fontFamily: "Special Elite" }}>
                     {numFormatter(data.latest_data.nodes[0].total_cases_1)}
                   </h1>
