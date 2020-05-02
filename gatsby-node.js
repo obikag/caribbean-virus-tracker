@@ -1,7 +1,22 @@
 const DataFrame = require(`dataframe-js`).DataFrame
 const csv = require(`csv-parser`)
 const fs = require(`fs`)
+const path = require('path')
+
 const results = []
+const iso_codes = [
+  "AG","AI","AW",
+  "BB","BL","BM",
+  "BQ","BS","BZ",
+  "CU","CW","DM",
+  "DO","GD","GF",
+  "GP","GY","HT",
+  "JM","KN","KY",
+  "LC","MF","MQ",
+  "MS","PR","SR",
+  "SX","TC","TT",
+  "VC","VG","VI"
+]
 const countries = [
   "Antigua and Barbuda",
   "Bahamas",
@@ -287,4 +302,17 @@ exports.onPreInit = () => {
         throw "CSV Transformation Stopped"
       }
     })
+}
+
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions;
+  const template = `${__dirname}/src/templates/island.js`;
+  iso_codes.forEach(iso_code => {
+    var path = iso_code;
+    createPage({
+      path,
+      component: template,
+      context : {code: iso_code},
+    })
+  })
 }
