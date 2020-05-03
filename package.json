@@ -2,7 +2,7 @@
   "name": "caribbean-virus-tracker",
   "private": true,
   "description": "A simplified web-based tracker for the Coronavirus outbreak in the Caribbean",
-  "version": "0.8.0",
+  "version": "0.8.3",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",

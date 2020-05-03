@@ -219,7 +219,7 @@ const HomePage = ({ data, location }) => {
                   style={{ backgroundColor: "#3b5998", borderStyle: "none" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com/"
                 >
                   <i class="fab fa-facebook-square fa-lg"></i>{" "}
                   <span>Share</span>
@@ -229,7 +229,7 @@ const HomePage = ({ data, location }) => {
                   style={{ backgroundColor: "#25d366", borderStyle: "none" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com"
+                  href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com/"
                 >
                   <i class="fab fa-whatsapp-square fa-lg"></i>{" "}
                   <span>Share</span>
@@ -239,7 +239,7 @@ const HomePage = ({ data, location }) => {
                   style={{ backgroundColor: "#1da1f2", borderStyle: "none" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://twitter.com/home?status=https://caribbeanvirustracker.com "
+                  href="https://twitter.com/home?status=https://caribbeanvirustracker.com/"
                 >
                   <i class="fab fa-twitter-square fa-lg"></i> <span>Share</span>
                 </a>
@@ -248,7 +248,7 @@ const HomePage = ({ data, location }) => {
                   style={{ backgroundColor: "#0e76a8", borderStyle: "none" }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com&title=&summary=&source="
+                  href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com/&title=&summary=&source="
                 >
                   <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
                 </a>
@@ -389,6 +389,10 @@ const HomePage = ({ data, location }) => {
                           )}
                           <br></br>
                           <em>Recovered:</em> {numFormatter(node.recovered)}
+                          <br></br>
+                          <a href={"/" + node.iso_code + "/"}>
+                            Learn more&nbsp;&gt;&gt;
+                          </a>
                         </Popup>
                       </CircleMarker>
                     ) : (

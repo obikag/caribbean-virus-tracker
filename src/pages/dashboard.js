@@ -2,12 +2,12 @@ import React, { Fragment } from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import "../components/global.css"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Alert } from "react-bootstrap"
 import { graphql } from "gatsby"
 import Highcharts from "highcharts"
 import HighchartsReact from "highcharts-react-official"
 
-const ChartsPage = ({ data }) => {
+const DashboardPage = ({ data }) => {
   const caribbean_options = {
     chart: { type: "bar", height: 600 },
     title: {
@@ -15,10 +15,38 @@ const ChartsPage = ({ data }) => {
     },
     xAxis: { categories: xLocationAxis(), labels: { step: 1 } },
     series: [
-      { name: "Total Cases", data: yTotalCasesAxis() },
-      { name: "Total Deaths", data: yTotalDeathsAxis() },
+      { name: "Total Cases", color: "#224c75", data: yTotalCasesAxis() },
+      { name: "Total Deaths", color: "#991605", data: yTotalDeathsAxis() },
     ],
   }
+
+  const caribbean_timeline_options = {
+    chart: { type: "line" },
+    title: {
+      text: "Timeline of COVID-19 Cases and Related Deaths in the Caribbean",
+    },
+    xAxis: { categories: xDateAxis() },
+    series: [
+      {
+        name: "Total Cases",
+        color: "#224c75",
+        data: yTimeSeriesOverallAxis(1),
+      },
+      {
+        name: "Total Deaths",
+        color: "#991605",
+        data: yTimeSeriesOverallAxis(2),
+      },
+    ],
+    responsive: {
+      rules: [
+        {
+          condition: { maxWidth: 900 },
+        },
+      ],
+    },
+  }
+
   const country_cases_options = {
     chart: { type: "line" },
     title: { text: "COVID-19 Cases for Caribbean Countries" },
@@ -254,10 +282,12 @@ const ChartsPage = ({ data }) => {
         data: [
           {
             name: "Countries",
+            color: "#0ec99b",
             y: parseInt(data.summary_info.nodes[0].Total_Country_Cases),
           },
           {
             name: "Territories",
+            color: "#e3c010",
             y: parseInt(data.summary_info.nodes[0].Total_Territory_Cases),
           },
         ],
@@ -304,10 +334,12 @@ const ChartsPage = ({ data }) => {
         data: [
           {
             name: "Countries",
+            color: "#0ec99b",
             y: parseInt(data.summary_info.nodes[0].Total_Country_Deaths),
           },
           {
             name: "Territories",
+            color: "#e3c010",
             y: parseInt(data.summary_info.nodes[0].Total_Territory_Deaths),
           },
         ],
@@ -335,7 +367,8 @@ const ChartsPage = ({ data }) => {
     },
     series: [
       {
-        name: "Territories",
+        name: "COVID-19 Cases",
+        color: "#224c75",
         data: [
           parseInt(data.summary_info.nodes[0].Total_FR_Territory_Cases),
           parseInt(data.summary_info.nodes[0].Total_NL_Territory_Cases),
@@ -368,7 +401,8 @@ const ChartsPage = ({ data }) => {
     },
     series: [
       {
-        name: "Territories",
+        name: "COVID-19 Related Deaths",
+        color: "#991605",
         data: [
           parseInt(data.summary_info.nodes[0].Total_FR_Territory_Deaths),
           parseInt(data.summary_info.nodes[0].Total_NL_Territory_Deaths),
@@ -392,6 +426,17 @@ const ChartsPage = ({ data }) => {
       xValues.push(node.date)
     })
     return xValues
+  }
+
+  function yTimeSeriesOverallAxis(mode) {
+    var arr = data.summary_info.nodes.slice().reverse()
+    var finalarr = []
+    arr.forEach(item => {
+      mode === 1
+        ? finalarr.push(parseInt(item.Total_Cases))
+        : finalarr.push(parseInt(item.Total_Deaths))
+    })
+    return finalarr
   }
 
   function yTimeSeriesCasesAxis(key, mode) {
@@ -455,19 +500,72 @@ const ChartsPage = ({ data }) => {
 
   return (
     <Fragment>
-      <Header />
+      <Header
+        title="Caribbean COVID-19 Dashboard"
+        description="This dashboard provides and visual overview of the COVID-19 cases and deaths throughout the Caribbean by Country and by Territory"
+        url="https://caribbeanvirustracker.com/dashboard/"
+      />
       <main>
         <Container className="py-2">
           <Row>
             <Col md="12">
-              <h1 class="header">Charts Page</h1>
+              <h1 class="header">Caribbean COVID-19 Dashboard</h1>
               <br></br>
-              <div class="alert alert-info text-center" role="alert">
+            </Col>
+          </Row>
+          <Row>
+            <Col md="12">
+              <div class="text-center">
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#3b5998", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https://caribbeanvirustracker.com/dashboard/"
+                >
+                  <i class="fab fa-facebook-square fa-lg"></i>{" "}
+                  <span>Share</span>
+                </a>
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#25d366", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://api.whatsapp.com/send?text=https://caribbeanvirustracker.com/dashboard/"
+                >
+                  <i class="fab fa-whatsapp-square fa-lg"></i>{" "}
+                  <span>Share</span>
+                </a>
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#1da1f2", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://twitter.com/home?status=https://caribbeanvirustracker.com/dashboard/ "
+                >
+                  <i class="fab fa-twitter-square fa-lg"></i> <span>Share</span>
+                </a>
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#0e76a8", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.linkedin.com/shareArticle?mini=true&url=https://caribbeanvirustracker.com/dashboard/&title=&summary=&source="
+                >
+                  <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
+                </a>
+              </div>
+              <br></br>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="12">
+              <Alert variant="info" className="text-center">
                 <h5>
                   Last Updated on{" "}
                   <strong>{data.latest_data.nodes[0].updatedate}</strong>
                 </h5>
-              </div>
+              </Alert>
             </Col>
           </Row>
         </Container>
@@ -480,11 +578,20 @@ const ChartsPage = ({ data }) => {
               />
             </Col>
           </Row>
+          <Row>
+            <Col md="12">
+              <HighchartsReact
+                highcharts={Highcharts}
+                options={caribbean_timeline_options}
+              />
+            </Col>
+          </Row>
         </Container>
         <Container className="py-2">
           <Row>
             <Col md="12">
-              <h2 class="header pt-1 pb-2">Caribbean Countries</h2>
+              <h2 class="header pt-2 pb-1">Caribbean Countries</h2>
+              <div class="divider"></div>
             </Col>
           </Row>
           <Row>
@@ -507,7 +614,8 @@ const ChartsPage = ({ data }) => {
         <Container className="py-2">
           <Row>
             <Col md="12">
-              <h2 class="header pt-1 pb-2">Caribbean Territories</h2>
+              <h2 class="header pt-2 pb-1">Caribbean Territories</h2>
+              <div class="divider"></div>
             </Col>
           </Row>
           <Row>
@@ -530,9 +638,10 @@ const ChartsPage = ({ data }) => {
         <Container className="py-2">
           <Row>
             <Col md="12">
-              <h2 class="header pt-1 pb-2">
+              <h2 class="header pt-2 pb-1">
                 Caribbean Countries and Territories
               </h2>
+              <div class="divider"></div>
             </Col>
           </Row>
           <Row>
@@ -553,7 +662,8 @@ const ChartsPage = ({ data }) => {
         <Container className="py-2">
           <Row>
             <Col md="12">
-              <h2 class="header pt-1 pb-2">Caribbean Regional Territories</h2>
+              <h2 class="header pt-2 pb-1">Caribbean Regional Territories</h2>
+              <div class="divider"></div>
             </Col>
           </Row>
           <Row>
@@ -705,10 +815,7 @@ export const query = graphql`
         United_States_Virgin_Islands
       }
     }
-    summary_info: allCaribbeansummaryCsv(
-      sort: { fields: date, order: DESC }
-      limit: 1
-    ) {
+    summary_info: allCaribbeansummaryCsv(sort: { fields: date, order: DESC }) {
       nodes {
         Total_Cases
         Total_Country_Deaths
@@ -729,4 +836,4 @@ export const query = graphql`
   }
 `
 
-export default ChartsPage
+export default DashboardPage

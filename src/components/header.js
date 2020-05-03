@@ -101,6 +101,10 @@ const Header = ({ title = "", description = "", url = "" }) => {
                   <i class="fa fa-fw fa-home" aria-hidden="true"></i>&nbsp;Home
                   <span class="sr-only"></span>
                 </Nav.Link>
+                <Nav.Link href="/dashboard/" className="active">
+                  <i class="fas fa-chart-line" aria-hidden="true"></i>
+                  &nbsp;Dashboard
+                </Nav.Link>
                 <Nav.Link href="/world/" className="active">
                   <i class="fa fa-fw fa-globe" aria-hidden="true"></i>
                   &nbsp;World

@@ -9,20 +9,31 @@ import HighchartsReact from "highcharts-react-official"
 
 const IslandPage = ({ data }) => {
   const page_context = data.page.nodes[0].context
+  const pageUrl =
+    "https://caribbeanvirustracker.com/" + page_context.iso_code[0] + "/"
   const island_stats_options = {
     chart: { type: "line" },
     title: {
-      text: "COVID-19 Cases and Related Deaths for " + page_context.location[0],
+      text:
+        "COVID-19 Confirmed Cases, Related Deaths and Recovered Cases for " +
+        page_context.location[0],
     },
     xAxis: { categories: xDateAxis() },
     series: [
       {
         name: "Total Cases",
-        data: yCasesDeathsAxis(1),
+        color: "#224c75",
+        data: yCasesAxis(1),
       },
       {
         name: "Total Deaths",
-        data: yCasesDeathsAxis(2),
+        color: "#991605",
+        data: yCasesAxis(2),
+      },
+      {
+        name: "Recovered",
+        color: "#27a31c",
+        data: yCasesAxis(3),
       },
     ],
     responsive: {
@@ -42,7 +53,7 @@ const IslandPage = ({ data }) => {
     return rArr
   }
 
-  function yCasesDeathsAxis(mode) {
+  function yCasesAxis(mode) {
     var rArr1 = null,
       rArr2 = null,
       finalArr = []
@@ -52,11 +63,16 @@ const IslandPage = ({ data }) => {
       rArr1.forEach((item, id) => {
         item > rArr2[id] ? finalArr.push(item) : finalArr.push(rArr2[id])
       })
-    } else {
+    } else if (mode === 2) {
       rArr1 = page_context.total_deaths_1.slice().reverse()
       rArr2 = page_context.total_deaths_1.slice().reverse()
       rArr1.forEach((item, id) => {
         item > rArr2[id] ? finalArr.push(item) : finalArr.push(rArr2[id])
+      })
+    } else {
+      rArr1 = page_context.recovered.slice().reverse()
+      rArr1.forEach(item => {
+        finalArr.push(parseInt(item))
       })
     }
     return finalArr
@@ -107,14 +123,20 @@ const IslandPage = ({ data }) => {
           "As at " +
           fmtDate(page_context.date[0]) +
           " there are currently " +
-          Math.max(page_context.total_cases_1[0], page_context.total_cases_2[0]) +
+          Math.max(
+            page_context.total_cases_1[0],
+            page_context.total_cases_2[0]
+          ) +
           " confirmed COVID-19 cases and " +
-          Math.max(page_context.total_deaths_1[0], page_context.total_deaths_2[0]) +
+          Math.max(
+            page_context.total_deaths_1[0],
+            page_context.total_deaths_2[0]
+          ) +
           " COVID-19 related deaths in " +
           page_context.location[0] +
           "."
         }
-        url={"https://caribbeanvirustracker.com/"+page_context.iso_code[0]+"/"}
+        url={pageUrl}
       />
       <main>
         <Container className="py-3">
@@ -149,6 +171,57 @@ const IslandPage = ({ data }) => {
                 <p>
                   <strong>ISO code:</strong>&nbsp;{page_context.iso_code[0]}
                 </p>
+              </div>
+            </Col>
+          </Row>
+          <br></br>
+          <Row>
+            <Col md="12">
+              <div class="text-center">
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#3b5998", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={
+                    "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl
+                  }
+                >
+                  <i class="fab fa-facebook-square fa-lg"></i>{" "}
+                  <span>Share</span>
+                </a>
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#25d366", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://api.whatsapp.com/send?text=" + pageUrl}
+                >
+                  <i class="fab fa-whatsapp-square fa-lg"></i>{" "}
+                  <span>Share</span>
+                </a>
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#1da1f2", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={"https://twitter.com/home?status=" + pageUrl + " "}
+                >
+                  <i class="fab fa-twitter-square fa-lg"></i> <span>Share</span>
+                </a>
+                <a
+                  class="btn btn-dark btn-sm mx-2 my-1"
+                  style={{ backgroundColor: "#0e76a8", borderStyle: "none" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={
+                    "https://www.linkedin.com/shareArticle?mini=true&url=" +
+                    pageUrl +
+                    "&title=&summary=&source="
+                  }
+                >
+                  <i class="fab fa-linkedin fa-lg"></i> <span>Share</span>
+                </a>
               </div>
             </Col>
           </Row>

@@ -24,7 +24,7 @@ const FaqPage = () => {
           <Row>
             <Col md="12">
               <h2 class="header">General Information</h2>
-              <hr></hr>
+              <div class="divider"></div>
               <h5>What is the coronavirus?</h5>
               <p>
                 Coronaviruses are one of a large family of viruses which may
@@ -80,7 +80,7 @@ const FaqPage = () => {
           <Row>
             <Col md="12">
               <h2 class="header">How the Coronavirus Spreads</h2>
-              <hr></hr>
+              <div class="divider"></div>
               <h5>How does the virus spread?</h5>
               <p>
                 People can catch COVID-19 from others who have the virus. The
@@ -123,7 +123,7 @@ const FaqPage = () => {
           <Row>
             <Col md="12">
               <h2 class="header">Protecting Yourself</h2>
-              <hr></hr>
+              <div class="divider"></div>
               <h5>How can I help protect myself?</h5>
               <p>
                 You should:
@@ -182,18 +182,6 @@ const FaqPage = () => {
                     especially after being near the person who is sick.
                   </li>
                 </ul>
-              </p>
-            </Col>
-          </Row>
-        </Container>
-        <Container className="py-2">
-          <Row>
-            <Col md="12">
-              <h2 class="header">Related Websites</h2>
-              <hr></hr>
-              <p>
-                Under Construction <a href="/">Click here</a> to go back to the
-                Home Page
               </p>
             </Col>
           </Row>

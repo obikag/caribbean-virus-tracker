@@ -11,8 +11,8 @@ module.exports = {
     titleTemplate: "%s · Tracking the Coronavirus outbreak in the Caribbean",
     description:
       "This website provides the Caribbean community with an overview of the ongoing COVID-19 pandemic throughout the Caribbean.",
-    siteUrl: "https://caribbeanvirustracker.com",
-    image: "/cvt-image.png",
+    siteUrl: "https://caribbeanvirustracker.com/",
+    image: "https://caribbeanvirustracker.com/cvt-image.png",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
