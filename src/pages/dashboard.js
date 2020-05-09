@@ -334,12 +334,12 @@ const DashboardPage = ({ data }) => {
         data: [
           {
             name: "Countries",
-            color: "#0ec99b",
+            color: "#c810e0",
             y: parseInt(data.summary_info.nodes[0].Total_Country_Deaths),
           },
           {
             name: "Territories",
-            color: "#e3c010",
+            color: "#eb920e",
             y: parseInt(data.summary_info.nodes[0].Total_Territory_Deaths),
           },
         ],
