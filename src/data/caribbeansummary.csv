@@ -1,5 +1,4 @@
 date,Total_Cases,Total_Deaths,Total_Country_Cases,Total_Country_Deaths,Total_Territory_Cases,Total_Territory_Deaths,Total_FR_Territory_Cases,Total_FR_Territory_Deaths,Total_NL_Territory_Cases,Total_NL_Territory_Deaths,Total_UK_Territory_Cases,Total_UK_Territory_Deaths,Total_US_Territory_Cases,Total_US_Territory_Deaths
-11/5/2020,16964,717,13673,537,3291,180,530,31,200,19,236,12,2325,118
 12/5/2020,17324,731,13977,549,3347,182,540,31,200,19,239,12,2368,120
 13/5/2020,17677,740,14297,557,3380,183,542,31,200,19,240,12,2398,121
 14/5/2020,17980,758,14482,572,3498,186,553,31,201,19,248,13,2496,123
@@ -15,3 +14,4 @@ date,Total_Cases,Total_Deaths,Total_Country_Cases,Total_Country_Deaths,Total_Ter
 24/5/2020,23233,814,18745,617,4488,197,732,32,202,19,296,13,3258,133
 25/5/2020,23713,820,19123,621,4590,199,757,32,203,19,301,13,3329,135
 26/5/2020,24251,834,19556,635,4695,199,788,32,204,19,310,13,3393,135
+27/5/2020,24971,841,20178,642,4793,199,810,32,204,19,313,13,3466,135
