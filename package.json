@@ -14,30 +14,30 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "csv-parser": "^2.3.2",
+    "bootstrap": "^4.5.0",
+    "csv-parser": "^2.3.3",
     "dataframe-js": "^1.4.3",
-    "gatsby": "^2.21.21",
+    "gatsby": "^2.23.1",
     "gatsby-plugin-anchor-links": "^1.1.1",
-    "gatsby-plugin-google-analytics": "^2.3.1",
-    "gatsby-plugin-manifest": "^2.4.2",
-    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-google-analytics": "^2.3.3",
+    "gatsby-plugin-manifest": "^2.4.10",
+    "gatsby-plugin-react-helmet": "^3.3.3",
     "gatsby-plugin-react-leaflet": "^2.0.13",
-    "gatsby-plugin-robots-txt": "^1.5.0",
-    "gatsby-plugin-sitemap": "^2.4.2",
-    "gatsby-source-filesystem": "^2.3.1",
-    "gatsby-transformer-csv": "^2.3.1",
+    "gatsby-plugin-robots-txt": "^1.5.1",
+    "gatsby-plugin-sitemap": "^2.4.4",
+    "gatsby-source-filesystem": "^2.3.10",
+    "gatsby-transformer-csv": "^2.3.3",
     "highcharts": "^8.1.0",
     "highcharts-react-official": "^3.0.0",
     "leaflet": "^1.6.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.0.0",
     "react-leaflet": "^2.7.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.5"
   },
   "repository": {
     "type": "git",
