@@ -22,6 +22,18 @@ const WorldPage = ({ data }) => {
           <Row>
             <Col md="12">
               <h1 class="header">World Outbreak Statistics</h1>
+                <Alert variant="warning">
+                  <Alert.Heading>Changes to Website and Reporting</Alert.Heading>
+                  <p>
+                    World Health Organization has changed their reporting format for the COVID-19 pandemic 
+                    from a daily scheme to a weekly one. As a result, their statistics will not be used again. 
+                  </p>
+                  <p>
+                    Additionally, the site will be undergoing some changes over the month to the dashboard 
+                    and other sections of the site.
+                  </p>
+                </Alert>
+                <br></br>
               <h5>
                 <em>
                   These are the latest reported World stats for the Coronavirus
