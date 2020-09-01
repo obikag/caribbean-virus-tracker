@@ -65,7 +65,7 @@ const IslandPage = ({ data }) => {
       })
     } else if (mode === 2) {
       rArr1 = page_context.total_deaths_1.slice().reverse()
-      rArr2 = page_context.total_deaths_1.slice().reverse()
+      rArr2 = page_context.total_deaths_2.slice().reverse()
       rArr1.forEach((item, id) => {
         item > rArr2[id] ? finalArr.push(item) : finalArr.push(rArr2[id])
       })
