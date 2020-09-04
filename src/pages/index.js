@@ -260,15 +260,12 @@ const HomePage = ({ data, location }) => {
               <Col md="12">
                 <h2 class="header">Caribbean Outbreak Statistics</h2>
                 <Alert variant="warning">
-                  <Alert.Heading>Changes to Website and Reporting</Alert.Heading>
+                  <Alert.Heading>Scheduled Downtime</Alert.Heading>
                   <p>
-                    World Health Organization has changed their reporting format for the COVID-19 pandemic 
-                    from a daily scheme to a weekly one. As a result, their statistics will not be used again. 
+                    This site will not be availble on <strong>Sunday 6th September 2020</strong>. 
+                    This is to facitate an upgrade to the site.
                   </p>
-                  <p>
-                    Additionally, the site will be undergoing some changes over the month to the dashboard 
-                    and other sections of the site.
-                  </p>
+                  <p>Thanks for your patience and understanding.</p>
                 </Alert>
                 <br></br>
                 <Alert variant="info" className="text-center">
