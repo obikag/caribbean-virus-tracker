@@ -1,5 +1,15 @@
 # Caribbean Virus Tracker
 
+## Archived
+
+This repository is no longer being maintained as the site has been moved to a different code base with updated features.
+
+Thanks to all who have contributed to this project. You can still obtain updates from the website:
+
+<https://caribbeanvirustracker.com/>
+
+## Introduction
+
 A website for the purpose of providing the Caribbean community with an overview of the ongoing Coronavirus pandemic within the Caribbean.
 
 [![forthebadge made-with-javascript][4]](https://www.javascript.com/)

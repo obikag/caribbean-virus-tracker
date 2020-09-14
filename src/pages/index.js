@@ -259,15 +259,6 @@ const HomePage = ({ data, location }) => {
             <Row>
               <Col md="12">
                 <h2 class="header">Caribbean Outbreak Statistics</h2>
-                <Alert variant="warning">
-                  <Alert.Heading>Scheduled Downtime</Alert.Heading>
-                  <p>
-                    This site will not be availble on <strong>Sunday 6th September 2020</strong>. 
-                    This is to facitate an upgrade to the site.
-                  </p>
-                  <p>Thanks for your patience and understanding.</p>
-                </Alert>
-                <br></br>
                 <Alert variant="info" className="text-center">
                   <h5>
                     Last Updated on{" "}
